@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -14,6 +15,20 @@ public class HandView : MonoBehaviour
     {
         _cards.Add(card);
         yield return UpdateCardPosition(0.15f);
+    }
+
+    public CardView RemoveCard(Card card)
+    {
+        CardView cardView = GetCardView(card);
+        if(cardView == null) return null;
+        _cards.Remove(cardView);
+        StartCoroutine(UpdateCardPosition(0.15f));
+        return cardView;
+    }
+
+    private CardView GetCardView(Card card)
+    {
+        return _cards.Where(cardView => cardView.Card == card).FirstOrDefault();
     }
 
     private IEnumerator UpdateCardPosition(float duration)
