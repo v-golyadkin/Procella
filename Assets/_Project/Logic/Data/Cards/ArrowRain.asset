@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89b9b67fe666f844bdfdb9e3731d8f3, type: 3}
+  m_Name: ArrowRain
+  m_EditorClassIdentifier: 
+  <Description>k__BackingField: Deal 10 damage to all enemies
+  <Mana>k__BackingField: 1
+  <Image>k__BackingField: {fileID: 21300000, guid: d87eabd20deaff84c89f0b13eb20cc7a, type: 3}
+  <Effects>k__BackingField:
+  - rid: 1077989101364314198
+  references:
+    version: 2
+    RefIds:
+    - rid: 1077989101364314198
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _damageAmount: 10
