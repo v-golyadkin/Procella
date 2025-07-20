@@ -19,18 +19,18 @@ MonoBehaviour:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 1077989131227496536
+      rid: 1077989153016643691
     <Effect>k__BackingField:
-      rid: 1077989131227496537
+      rid: 1077989153016643692
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 1077989131227496536
+    - rid: 1077989153016643691
       type: {class: NoTM, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 1077989131227496537
+    - rid: 1077989153016643692
       type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
       data:
         _drawAmount: 2
