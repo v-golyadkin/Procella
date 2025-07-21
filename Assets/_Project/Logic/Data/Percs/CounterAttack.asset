@@ -17,8 +17,8 @@ MonoBehaviour:
     rid: 1077989172397473882
   <AutoTargetEffect>k__BackingField:
     rid: 1077989172397473883
-  <UseAutoTarget>k__BackingField: 1
-  <UseActionCasterAsTarget>k__BackingField: 0
+  <UseAutoTarget>k__BackingField: 0
+  <UseActionCasterAsTarget>k__BackingField: 1
   references:
     version: 2
     RefIds:
@@ -27,11 +27,15 @@ MonoBehaviour:
     - rid: 1077989172397473882
       type: {class: OnEnemyAttackCondition, ns: , asm: Assembly-CSharp}
       data:
-        timing: 0
+        timing: 1
     - rid: 1077989172397473883
       type: {class: AutoTargetEffect, ns: , asm: Assembly-CSharp}
       data:
         <TargetMode>k__BackingField:
           rid: -2
         <Effect>k__BackingField:
-          rid: -2
+          rid: 1077989172397473884
+    - rid: 1077989172397473884
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _damageAmount: 5
