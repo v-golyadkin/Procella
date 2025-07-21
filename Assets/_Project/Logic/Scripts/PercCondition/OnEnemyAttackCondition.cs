@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class OnEnemyAttackCondition : PercCondition
+public class OnEnemyAttackCondition : PerkCondition
 {
     public override bool SubConditionIsMet()
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class PercCondition
+public abstract class PerkCondition
 {
     [SerializeField] protected ReactionTiming timing;
 
