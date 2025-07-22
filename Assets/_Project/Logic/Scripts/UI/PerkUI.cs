@@ -10,6 +10,6 @@ public class PerkUI : MonoBehaviour
     public void Setup(Perk perk)
     {
         Perk = perk;
-        _image.sprite = perk.Image;
+        _image.sprite = perk.Image; 
     }
 }
