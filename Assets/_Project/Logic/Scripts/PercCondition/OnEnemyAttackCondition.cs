@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class OnEnemyAttackCondition : PerkCondition
 {
-    public override bool SubConditionIsMet()
+    public override bool SubConditionIsMet(GameAction gameAction)
     {
         return true;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class DrawCardEffect : Effect
 {
     [SerializeField] private int _drawAmount;
-    public override GameAction GetGameAction(List<CombatantView> targets)
+    public override GameAction GetGameAction(List<CombatantView> targets, CombatantView caster)
     {
         DrawCardsGA drawCardsGA = new(_drawAmount);
         return drawCardsGA;

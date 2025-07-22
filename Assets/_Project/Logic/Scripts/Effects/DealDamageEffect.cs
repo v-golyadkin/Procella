@@ -5,9 +5,9 @@ public class DealDamageEffect : Effect
 {
     [SerializeField] private int _damageAmount;
 
-    public override GameAction GetGameAction(List<CombatantView> targets)
+    public override GameAction GetGameAction(List<CombatantView> targets,CombatantView caster)
     {
-        DealDamageGA dealDamageGA = new(_damageAmount, targets);
+        DealDamageGA dealDamageGA = new(_damageAmount, targets, caster);
         return dealDamageGA;
     }
 }

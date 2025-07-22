@@ -7,5 +7,5 @@ public abstract class PerkCondition
 
     public abstract void SubscribeCondition(Action<GameAction> reaction);
     public abstract void UnsubscribeCondition(Action<GameAction> reaction);
-    public abstract bool SubConditionIsMet();
+    public abstract bool SubConditionIsMet(GameAction gameAction);
 }
