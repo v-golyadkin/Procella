@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89b9b67fe666f844bdfdb9e3731d8f3, type: 3}
+  m_Name: Armour Up
+  m_EditorClassIdentifier: 
+  <Description>k__BackingField: Add 5 armour and draw 2 cards.
+  <Mana>k__BackingField: 0
+  <Image>k__BackingField: {fileID: 21300000, guid: 481ea1b8586d7e14da77161022667d99, type: 3}
+  <ManualTargerEffect>k__BackingField:
+    rid: -2
+  <OtherEffects>k__BackingField:
+  - <TargetMode>k__BackingField:
+      rid: 1077989239332536413
+    <Effect>k__BackingField:
+      rid: 1077989239332536414
+  - <TargetMode>k__BackingField:
+      rid: 1077989239332536423
+    <Effect>k__BackingField:
+      rid: 1077989239332536422
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 1077989239332536413
+      type: {class: HeroTM, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 1077989239332536414
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _statusEffectType: 0
+        _stackCount: 5
+    - rid: 1077989239332536422
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _drawAmount: 2
+    - rid: 1077989239332536423
+      type: {class: NoTM, ns: , asm: Assembly-CSharp}
+      data: 

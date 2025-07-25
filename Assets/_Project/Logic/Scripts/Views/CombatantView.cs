@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -6,9 +7,11 @@ public class CombatantView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _healthText;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private StatusEffectsUI _statusEffectsUI;
 
     public int MaxHealth {  get; private set; }
     public int CurrentHelth { get; private set; }
+    private Dictionary<StatusEffectType, int> _statusEffects = new();
 
     protected void SetupBase(int health, Sprite image)
     {
@@ -24,12 +27,65 @@ public class CombatantView : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
-        CurrentHelth -= damageAmount;
-        if (CurrentHelth < 0)
+        int remainingDamage = damageAmount;
+        int currentArmour = GetStatusEffectStacks(StatusEffectType.ARMOR);
+
+        if(currentArmour > 0)
         {
-            CurrentHelth = 0;
+            if(currentArmour >= damageAmount)
+            {
+                RemoveStatusEffect(StatusEffectType.ARMOR, remainingDamage);
+                remainingDamage = 0;
+            }
+            else if(currentArmour < damageAmount) 
+            {
+                RemoveStatusEffect(StatusEffectType.ARMOR, currentArmour);
+                remainingDamage -= currentArmour;
+            }
         }
+
+        if(remainingDamage > 0)
+        {
+            CurrentHelth -= remainingDamage;
+            if (CurrentHelth < 0)
+            {
+                CurrentHelth = 0;
+            }
+        }
+
         transform.DOShakePosition(0.2f, 0.5f);
         UpdateHealthText();
+    }
+
+    public int GetStatusEffectStacks(StatusEffectType type)
+    {
+        if(_statusEffects.ContainsKey(type)) return _statusEffects[type];
+        else return 0;
+    }
+
+    public void AddStatusEffect(StatusEffectType type, int stackCount)
+    {
+        if (_statusEffects.ContainsKey(type))
+        {
+            _statusEffects[type] += stackCount;
+        }
+        else
+        {
+            _statusEffects.Add(type, stackCount);
+        }
+        _statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
+    }
+
+    public void RemoveStatusEffect(StatusEffectType type, int stackCount)
+    {
+        if (_statusEffects.ContainsKey(type))
+        {
+            _statusEffects[type] -= stackCount;
+            if(_statusEffects[type] <= 0)
+            {
+                _statusEffects.Remove(type);
+            }
+        }
+        _statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
     }
 }
