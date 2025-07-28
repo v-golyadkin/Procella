@@ -1549,16 +1549,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4307551705745429498, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2899625420944174695, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7373976729538190063, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
 --- !u!1 &826102686
 GameObject:
@@ -1762,6 +1753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f40ea8b79aef544aaf628ff0a50267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healVFX: {fileID: 3432958286849152088, guid: 1c23e28574db97e4c80e35aecb4a29dd, type: 3}
 --- !u!1 &1154638545
 GameObject:
   m_ObjectHideFlags: 0
