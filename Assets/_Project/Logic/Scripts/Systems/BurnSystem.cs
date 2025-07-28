@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BurnSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject _burnSFX;
+    [SerializeField] private GameObject burnSFX;
 
     private void OnEnable()
     {
@@ -20,7 +20,7 @@ public class BurnSystem : MonoBehaviour
     private IEnumerator ApplyBurnPerformer(ApplyBurnGA applyBurnGA)
     {
         CombatantView target = applyBurnGA.Target;
-        Instantiate(_burnSFX, target.transform.position, Quaternion.identity);
+        Instantiate(burnSFX, target.transform.position, Quaternion.identity);
         target.Damage(applyBurnGA.BurnDamage);
         target.RemoveStatusEffect(StatusEffectType.BURN, 1);
         yield return new WaitForSeconds(1f);

@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class MatchSetupSystem : MonoBehaviour
 {
-    [SerializeField] private HeroData _heroData;
-    [SerializeField] private PerkData _perkData;
-    [SerializeField] private List<EnemyData> _enemyDatas;
+    [SerializeField] private HeroData heroData;
+    [SerializeField] private PerkData perkData;
+    [SerializeField] private List<EnemyData> enemyDatas;
     private void Start()
     {
-        HeroSystem.Instance.Setup(_heroData);
-        EnemySystem.Instance.Setup(_enemyDatas);
-        CardSystem.Instance.Setup(_heroData.Deck);
-        PerkSystem.Instance.AddPerk(new Perk(_perkData));
+        HeroSystem.Instance.Setup(heroData);
+        EnemySystem.Instance.Setup(enemyDatas);
+        CardSystem.Instance.Setup(heroData.Deck);
+        PerkSystem.Instance.AddPerk(new Perk(perkData));
         DrawCardsGA drawCardsGA = new(5);
         ActionSystem.Instance.Perform(drawCardsGA);
     }

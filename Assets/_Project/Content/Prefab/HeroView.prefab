@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1440f04f0e65ba4d87df177750a0875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthText: {fileID: 4854060622498770227}
-  _spriteRenderer: {fileID: 8912692534347210328}
-  _statusEffectsUI: {fileID: 4745930532175806778}
+  healthText: {fileID: 4854060622498770227}
+  spriteRenderer: {fileID: 8912692534347210328}
+  statusEffectsUI: {fileID: 4745930532175806778}
 --- !u!1001 &690338511552967795
 PrefabInstance:
   m_ObjectHideFlags: 0

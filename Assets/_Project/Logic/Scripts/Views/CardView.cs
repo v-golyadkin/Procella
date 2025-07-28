@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class CardView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _title;
-    [SerializeField] private TMP_Text _description;
-    [SerializeField] private TMP_Text _mana;
-    [SerializeField] private SpriteRenderer _image;
-    [SerializeField] private GameObject _wrapper;
-    [SerializeField] private LayerMask _dropAreaLayer;
+    [SerializeField] private TMP_Text title;
+    [SerializeField] private TMP_Text description;
+    [SerializeField] private TMP_Text mana;
+    [SerializeField] private SpriteRenderer image;
+    [SerializeField] private GameObject wrapper;
+    [SerializeField] private LayerMask dropAreaLayer;
 
     public Card Card { get; private set; }
 
@@ -18,17 +18,17 @@ public class CardView : MonoBehaviour
     public void Setup(Card card)
     {
         Card = card;
-        _title.text = card.Title;
-        _description.text = card.Description;
-        _mana.text = card.Mana.ToString();
-        _image.sprite = card.Image;
+        title.text = card.Title;
+        description.text = card.Description;
+        mana.text = card.Mana.ToString();
+        image.sprite = card.Image;
     }
 
     private void OnMouseEnter()
     {
         if(!Interactions.Instance.PlayerCanHover()) return;
 
-        _wrapper.SetActive(false);
+        wrapper.SetActive(false);
         Vector3 pos = new(transform.position.x, -2f, 0);
         CardViewHoverSystem.Instance.Show(Card, pos);
     }
@@ -38,7 +38,7 @@ public class CardView : MonoBehaviour
         if(!Interactions.Instance.PlayerCanHover()) return;
 
         CardViewHoverSystem.Instance.Hide();
-        _wrapper.SetActive(true);
+        wrapper.SetActive(true);
     }
 
     private void OnMouseDown()
@@ -52,7 +52,7 @@ public class CardView : MonoBehaviour
         else
         {
             Interactions.Instance.PlayerIsDraging = true;
-            _wrapper.SetActive(true);
+            wrapper.SetActive(true);
             CardViewHoverSystem.Instance.Hide();
             _dragStartPosition = transform.position;
             _dragStartRotation = transform.rotation;
@@ -86,7 +86,7 @@ public class CardView : MonoBehaviour
         else
         {
             if (ManaSystem.Instance.HasEnoughMana(Card.Mana)
-                && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, _dropAreaLayer))
+                && Physics.Raycast(transform.position, Vector3.forward, out RaycastHit hit, 10f, dropAreaLayer))
             {
                 PlayCardGA playCardGA = new(Card);
                 ActionSystem.Instance.Perform(playCardGA);

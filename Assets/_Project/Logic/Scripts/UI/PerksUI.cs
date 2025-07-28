@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PerksUI : MonoBehaviour
 {
-    [SerializeField] private PerkUI _perkUIPrefab;
+    [SerializeField] private PerkUI perkUIPrefab;
     private readonly List<PerkUI> _perkUIs = new();
 
     public void AddPerkUI(Perk perk)
     {
-        PerkUI perkUI = Instantiate(_perkUIPrefab, transform);
+        PerkUI perkUI = Instantiate(perkUIPrefab, transform);
         perkUI.Setup(perk);
         _perkUIs.Add(perkUI);
     }

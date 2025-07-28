@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad475e83eb44f1f49a1ebe497a843a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _title: {fileID: 5758668169446550991}
-  _description: {fileID: 1214546074086753622}
-  _mana: {fileID: 3619509007257754067}
-  _image: {fileID: 2650361294888190303}
-  _wrapper: {fileID: 4276858518542541539}
-  _dropAreaLayer:
+  title: {fileID: 5758668169446550991}
+  description: {fileID: 1214546074086753622}
+  mana: {fileID: 3619509007257754067}
+  image: {fileID: 2650361294888190303}
+  wrapper: {fileID: 4276858518542541539}
+  dropAreaLayer:
     serializedVersion: 2
     m_Bits: 64
 --- !u!210 &4486918642501467317

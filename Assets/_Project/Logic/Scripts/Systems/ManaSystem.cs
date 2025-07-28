@@ -6,7 +6,7 @@ public class ManaSystem : Singleton<ManaSystem>
 {
     private const int MAX_MANA = 3;
 
-    [SerializeField] private ManaUI _manaUI;
+    [SerializeField] private ManaUI manaUI;
 
     private int _currentMana = MAX_MANA;
 
@@ -26,7 +26,7 @@ public class ManaSystem : Singleton<ManaSystem>
 
     private void Start()
     {
-        _manaUI.UpdateManaText(MAX_MANA);
+        manaUI.UpdateManaText(MAX_MANA);
     }
 
     public bool HasEnoughMana(int mana)
@@ -39,14 +39,14 @@ public class ManaSystem : Singleton<ManaSystem>
     private IEnumerator SpendManaPerformer(SpendManaGA spendManaGA)
     {
         _currentMana -= spendManaGA.Amount;
-        _manaUI.UpdateManaText(_currentMana);
+        manaUI.UpdateManaText(_currentMana);
         yield return null;
     }
 
     private IEnumerator RefillManaPerformer(RefillManaGA refillManaGA)
     {
         _currentMana = MAX_MANA;
-        _manaUI.UpdateManaText(_currentMana);
+        manaUI.UpdateManaText(_currentMana);
         yield return null;
     }
 

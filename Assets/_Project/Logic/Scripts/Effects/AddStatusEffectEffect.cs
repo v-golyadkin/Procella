@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class AddStatusEffectEffect : Effect
 {
-    [SerializeField] private StatusEffectType _statusEffectType;
-    [SerializeField] private int _stackCount;
+    [SerializeField] private StatusEffectType statusEffectType;
+    [SerializeField] private int stackCount;
 
     public override GameAction GetGameAction(List<CombatantView> targets, CombatantView caster)
     {
-        return new AddStatusEffectGA(_statusEffectType, _stackCount, targets);
+        return new AddStatusEffectGA(statusEffectType, stackCount, targets);
     }
 }

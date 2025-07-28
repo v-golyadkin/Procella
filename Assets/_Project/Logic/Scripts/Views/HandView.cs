@@ -7,7 +7,7 @@ using UnityEngine.Splines;
 
 public class HandView : MonoBehaviour
 {
-    [SerializeField] private SplineContainer _splineContainer;
+    [SerializeField] private SplineContainer splineContainer;
 
     private readonly List<CardView> _cards = new();
 
@@ -37,7 +37,7 @@ public class HandView : MonoBehaviour
 
         float cardSpacing = 1f / 10;
         float firstCardPosition = 0.5f - (_cards.Count - 1) * cardSpacing / 2;
-        Spline spline = _splineContainer.Spline;
+        Spline spline = splineContainer.Spline;
         for(int i = 0; i < _cards.Count; i++)
         {
             float pos = firstCardPosition + i * cardSpacing;

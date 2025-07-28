@@ -37,12 +37,12 @@ MonoBehaviour:
     - rid: 1077989239332536414
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
-        _statusEffectType: 0
-        _stackCount: 5
+        statusEffectType: 0
+        stackCount: 5
     - rid: 1077989239332536422
       type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
       data:
-        _drawAmount: 2
+        drawAmount: 2
     - rid: 1077989239332536423
       type: {class: NoTM, ns: , asm: Assembly-CSharp}
       data: 

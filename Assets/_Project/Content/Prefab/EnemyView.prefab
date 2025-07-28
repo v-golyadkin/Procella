@@ -223,10 +223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273a49503baf6af44a08d7c82e996610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthText: {fileID: 7832201534484226024}
-  _spriteRenderer: {fileID: 6078937027707481219}
-  _statusEffectsUI: {fileID: 7939961639446950881}
-  _attackText: {fileID: 3507273563862497424}
+  healthText: {fileID: 7832201534484226024}
+  spriteRenderer: {fileID: 6078937027707481219}
+  statusEffectsUI: {fileID: 7939961639446950881}
+  attackText: {fileID: 3507273563862497424}
 --- !u!65 &3471879796831354321
 BoxCollider:
   m_ObjectHideFlags: 0

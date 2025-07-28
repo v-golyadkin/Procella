@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class ManaUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _mana;
+    [SerializeField] private TMP_Text mana;
 
     public void UpdateManaText(int currentMana)
     {
-        _mana.text = currentMana.ToString();
+        mana.text = currentMana.ToString();
     }
 }

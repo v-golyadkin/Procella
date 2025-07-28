@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EnemySystem : Singleton<EnemySystem>
 {
-    [SerializeField] private EnemyBoardView _enemyBoardView;
+    [SerializeField] private EnemyBoardView enemyBoardView;
 
-    public List<EnemyView> Enemies => _enemyBoardView.EnemyViews;
+    public List<EnemyView> Enemies => enemyBoardView.EnemyViews;
 
     private void OnEnable()
     {
@@ -27,7 +27,7 @@ public class EnemySystem : Singleton<EnemySystem>
     {
         foreach(var enemyData in enemyDatas)
         {
-            _enemyBoardView.AddEnemy(enemyData);
+            enemyBoardView.AddEnemy(enemyData);
         }
     }
 
@@ -35,7 +35,7 @@ public class EnemySystem : Singleton<EnemySystem>
 
     private IEnumerator EnemyTurnPerformer(EnemyTurnGA enemyTurnGA)
     {
-        foreach(var enemy in _enemyBoardView.EnemyViews)
+        foreach(var enemy in enemyBoardView.EnemyViews)
         {
             int burnStacks = enemy.GetStatusEffectStacks(StatusEffectType.BURN);
             if(burnStacks > 0)
@@ -61,6 +61,6 @@ public class EnemySystem : Singleton<EnemySystem>
 
     private IEnumerator KillEnemyPerformer(KillEnemyGA killEnemyGA)
     {
-        yield return _enemyBoardView.RemoveEnemy(killEnemyGA.EnemyView);
+        yield return enemyBoardView.RemoveEnemy(killEnemyGA.EnemyView);
     }
 }

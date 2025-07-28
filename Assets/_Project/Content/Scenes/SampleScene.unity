@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5811d940c97596f43bfa1152c7c12398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowHead: {fileID: 228329137}
-  _lineRenderer: {fileID: 286038306}
+  arrowHead: {fileID: 228329137}
+  lineRenderer: {fileID: 286038306}
 --- !u!1 &172484939
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c918791b9bcd6634baf2e79e9853a1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardViewPrefab: {fileID: 2440339456331836766, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
+  cardViewPrefab: {fileID: 2440339456331836766, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
 --- !u!1 &204084164
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7245af804a16634b95d0aad61d86daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manaUI: {fileID: 1687456097}
+  manaUI: {fileID: 1687456097}
 --- !u!1 &228329137
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14489f36500c7f4c8f21c851dc4be10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _splineContainer: {fileID: 1819978290}
+  splineContainer: {fileID: 1819978290}
 --- !u!1 &286038304
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ccdaba7e3876504e9d40b93715bd320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardViewHover: {fileID: 323776903}
+  cardViewHover: {fileID: 323776903}
 --- !u!1 &369111498
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c24962607e00148b664fb4d524c903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slots:
+  slots:
   - {fileID: 338724918}
   - {fileID: 1157830728}
   - {fileID: 1676512298}
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636c10b6dc9d3c74dae8866998a26950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _burnSFX: {fileID: 8194992990867289339, guid: 3f275870a979f4e4ebae29c5e2b96fbe, type: 3}
+  burnSFX: {fileID: 8194992990867289339, guid: 3f275870a979f4e4ebae29c5e2b96fbe, type: 3}
 --- !u!1 &752337779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3dda820424b76047bd4647c644a4e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _perksUI: {fileID: 2114232499}
+  perksUI: {fileID: 2114232499}
 --- !u!1 &783927244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,12 +1460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e8af1416fcbb4eb8baca152bd3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heroData: {fileID: 11400000, guid: c0459097ba633ff489e124473dc6ad6d, type: 2}
-  _perkData: {fileID: 11400000, guid: a23398abf1e5e87499862f83e0abe8bf, type: 2}
-  _enemyDatas:
-  - {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
-  - {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
+  heroData: {fileID: 11400000, guid: c0459097ba633ff489e124473dc6ad6d, type: 2}
+  perkData: {fileID: 11400000, guid: a23398abf1e5e87499862f83e0abe8bf, type: 2}
+  enemyDatas:
   - {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}
+  - {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
+  - {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
 --- !u!1001 &785715109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1549,7 +1549,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4307551705745429498, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2899625420944174695, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7373976729538190063, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e163cd8b81c77564f915382f78a242ab, type: 3}
 --- !u!1 &826102686
 GameObject:
@@ -1675,9 +1684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e317845f38a1248a0829592a3137ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handView: {fileID: 245727193}
-  _drawPilePoint: {fileID: 826102687}
-  _discardPilePoint: {fileID: 963885612}
+  handView: {fileID: 245727193}
+  drawPilePoint: {fileID: 826102687}
+  discardPilePoint: {fileID: 963885612}
 --- !u!1 &963885611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,7 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71202d560242c1d448c492d76441498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageVFX: {fileID: 5880797563127281583, guid: af8b932d52a53924193d174a18acbd82, type: 3}
+  damageVFX: {fileID: 5880797563127281583, guid: af8b932d52a53924193d174a18acbd82, type: 3}
 --- !u!1 &1522608396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,7 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f3c3846a421e746a8105d7ed0a1281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyViewPrefab: {fileID: 1761718903973347539, guid: c7df701ef0303534f81d3ed3b4255fd0, type: 3}
+  enemyViewPrefab: {fileID: 1761718903973347539, guid: c7df701ef0303534f81d3ed3b4255fd0, type: 3}
 --- !u!1 &1591579578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6c36ae6ce788846bb4142779b65c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mana: {fileID: 514350134}
+  mana: {fileID: 514350134}
 --- !u!1 &1741739128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,7 +2682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4705980db81f6cf4f91cc0d7ba3584d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBoardView: {fileID: 369111500}
+  enemyBoardView: {fileID: 369111500}
 --- !u!1 &1942694337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,8 +2907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ec498c421c7144cad4412d4d4e9938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowView: {fileID: 103012927}
-  _targetLayerMask:
+  arrowView: {fileID: 103012927}
+  targetLayerMask:
     serializedVersion: 2
     m_Bits: 128
 --- !u!1 &2088791059
@@ -3016,7 +3025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1f14bfc53f854ab6eeee3ab5e0f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _perkUIPrefab: {fileID: 4428839655759798294, guid: db24d83697b13c240a34067a060a6ff4, type: 3}
+  perkUIPrefab: {fileID: 4428839655759798294, guid: db24d83697b13c240a34067a060a6ff4, type: 3}
 --- !u!1 &2138997356
 GameObject:
   m_ObjectHideFlags: 0

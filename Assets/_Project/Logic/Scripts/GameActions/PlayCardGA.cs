@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayCardGA : GameAction
 {
     public EnemyView ManualTarget { get; private set; }

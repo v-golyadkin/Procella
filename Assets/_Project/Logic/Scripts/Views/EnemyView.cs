@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyView : CombatantView
 {
-    [SerializeField] private TMP_Text _attackText;
+    [SerializeField] private TMP_Text attackText;
 
     public int AttackPower {  get; set; }
 
@@ -16,6 +16,6 @@ public class EnemyView : CombatantView
 
     private void UpdateAttackText()
     {
-        _attackText.text = $"ATK: {AttackPower}";
+        attackText.text = $"ATK: {AttackPower}";
     }
 }

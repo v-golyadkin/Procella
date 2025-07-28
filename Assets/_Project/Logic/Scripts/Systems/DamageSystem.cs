@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject _damageVFX;
+    [SerializeField] private GameObject damageVFX;
 
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class DamageSystem : MonoBehaviour
         foreach(var target in dealDamageGA.Targets)
         {
             target.Damage(dealDamageGA.Amount);
-            Instantiate(_damageVFX, target.transform.position, Quaternion.identity);
+            Instantiate(damageVFX, target.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.15f);
             if(target.CurrentHelth <= 0)
             {

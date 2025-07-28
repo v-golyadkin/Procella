@@ -30,8 +30,8 @@ MonoBehaviour:
     - rid: 1077989263307440217
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
-        _statusEffectType: 1
-        _stackCount: 3
+        statusEffectType: 1
+        stackCount: 3
     - rid: 1077989263307440224
       type: {class: AllEnemiesTM, ns: , asm: Assembly-CSharp}
       data: 

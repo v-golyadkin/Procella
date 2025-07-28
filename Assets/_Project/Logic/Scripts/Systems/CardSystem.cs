@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CardSystem : Singleton<CardSystem>
 {
-    [SerializeField] private HandView _handView;
-    [SerializeField] private Transform _drawPilePoint;
-    [SerializeField] private Transform _discardPilePoint;
+    [SerializeField] private HandView handView;
+    [SerializeField] private Transform drawPilePoint;
+    [SerializeField] private Transform discardPilePoint;
 
 
     private readonly List<Card> _drawPile = new();
@@ -66,7 +66,7 @@ public class CardSystem : Singleton<CardSystem>
     {
         foreach(var card in _hand)
         {
-            CardView cardView = _handView.RemoveCard(card);
+            CardView cardView = handView.RemoveCard(card);
             yield return DiscardCard(cardView);
         }
         _hand.Clear();
@@ -75,7 +75,7 @@ public class CardSystem : Singleton<CardSystem>
     private IEnumerator PlayCardPerformer(PlayCardGA playCardGA)
     {
         _hand.Remove(playCardGA.Card);
-        CardView cardView = _handView.RemoveCard(playCardGA.Card);
+        CardView cardView = handView.RemoveCard(playCardGA.Card);
         yield return DiscardCard(cardView);
 
         SpendManaGA spendManaGA = new(playCardGA.Card.Mana);
@@ -101,15 +101,15 @@ public class CardSystem : Singleton<CardSystem>
     {
         Card card = _drawPile.Draw();
         _hand.Add(card);
-        CardView cardView = CardViewCreator.Instance.CreateCardView(card, _drawPilePoint.position, _drawPilePoint.rotation);
-        yield return _handView.AddCard(cardView);
+        CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
+        yield return handView.AddCard(cardView);
     }
 
     private IEnumerator DiscardCard(CardView cardView)
     {
         _discardPile.Add(cardView.Card);
         cardView.transform.DOScale(Vector3.zero, 0.15f);
-        Tween tween = cardView.transform.DOMove(_discardPilePoint.transform.position, 0.15f);
+        Tween tween = cardView.transform.DOMove(discardPilePoint.transform.position, 0.15f);
         yield return tween.WaitForCompletion();
         Destroy(cardView.gameObject);
     }

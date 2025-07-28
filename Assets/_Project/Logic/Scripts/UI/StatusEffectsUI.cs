@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class StatusEffectsUI : MonoBehaviour
 {
-    [SerializeField] private StatusEffectUI _statusEffectUIPrefab;
-    [SerializeField] private Sprite _armourSprite, _burnSprite;
+    [SerializeField] private StatusEffectUI statusEffectUIPrefab;
+    [SerializeField] private Sprite armourSprite, burnSprite;
 
     private Dictionary<StatusEffectType, StatusEffectUI> _statusEffectUIs = new();
 
@@ -23,7 +23,7 @@ public class StatusEffectsUI : MonoBehaviour
         {
             if (!_statusEffectUIs.ContainsKey(statusEffectType))
             {
-                StatusEffectUI statusEffectUI = Instantiate(_statusEffectUIPrefab, transform);
+                StatusEffectUI statusEffectUI = Instantiate(statusEffectUIPrefab, transform);
                 _statusEffectUIs.Add(statusEffectType, statusEffectUI);
             }
             Sprite sprite = GetSpriteByType(statusEffectType);
@@ -35,8 +35,8 @@ public class StatusEffectsUI : MonoBehaviour
     {
         return statusEffectType switch
         {
-            StatusEffectType.ARMOR => _armourSprite,
-            StatusEffectType.BURN => _burnSprite,
+            StatusEffectType.ARMOR => armourSprite,
+            StatusEffectType.BURN => burnSprite,
             _ => null,
         };
     }

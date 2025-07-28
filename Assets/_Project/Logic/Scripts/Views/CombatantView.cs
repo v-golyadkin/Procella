@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class CombatantView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _healthText;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private StatusEffectsUI _statusEffectsUI;
+    [SerializeField] private TMP_Text healthText;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private StatusEffectsUI statusEffectsUI;
 
     public int MaxHealth {  get; private set; }
     public int CurrentHelth { get; private set; }
@@ -16,13 +16,13 @@ public class CombatantView : MonoBehaviour
     protected void SetupBase(int health, Sprite image)
     {
         MaxHealth = CurrentHelth = health;
-        _spriteRenderer.sprite = image;
+        spriteRenderer.sprite = image;
         UpdateHealthText();
     }
 
     private void UpdateHealthText()
     {
-        _healthText.text = $"HP: {CurrentHelth}";
+        healthText.text = $"HP: {CurrentHelth}";
     }
 
     public void Damage(int damageAmount)
@@ -84,7 +84,7 @@ public class CombatantView : MonoBehaviour
         {
             _statusEffects.Add(type, stackCount);
         }
-        _statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
+        statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
     }
 
     public void RemoveStatusEffect(StatusEffectType type, int stackCount)
@@ -97,6 +97,6 @@ public class CombatantView : MonoBehaviour
                 _statusEffects.Remove(type);
             }
         }
-        _statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
+        statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
     }
 }

@@ -30,7 +30,7 @@ MonoBehaviour:
     - rid: 1077989284631543891
       type: {class: HealEffect, ns: , asm: Assembly-CSharp}
       data:
-        _healAmount: 4
+        healAmount: 4
     - rid: 1077989284631543892
       type: {class: HeroTM, ns: , asm: Assembly-CSharp}
       data: 
