@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Description>k__BackingField: Heal 4 hp
   <Mana>k__BackingField: 0
-  <Image>k__BackingField: {fileID: 21300000, guid: 481ea1b8586d7e14da77161022667d99, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: a8cb157cf3a3a9b4492562788d6f2d44, type: 3}
   <ManualTargerEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
