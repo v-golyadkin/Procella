@@ -13,6 +13,14 @@ public class CombatantView : MonoBehaviour
     public int CurrentHelth { get; private set; }
     private Dictionary<StatusEffectType, int> _statusEffects = new();
 
+    protected void SetupBase(int health, int armour, Sprite image)
+    {
+        MaxHealth = CurrentHelth = health;
+        spriteRenderer.sprite = image;
+        AddStatusEffect(StatusEffectType.ARMOR, armour);
+        UpdateHealthText();   
+    }
+
     protected void SetupBase(int health, Sprite image)
     {
         MaxHealth = CurrentHelth = health;
