@@ -52,11 +52,15 @@ public class EnemySystem : Singleton<EnemySystem>
     private IEnumerator AttackHeroPerformer(AttackHeroGA attackHeroGA)
     {
         EnemyView attacker = attackHeroGA.Attacker;
-        Tween tween = attacker.transform.DOMoveX(attacker.transform.position.x - 1f, 0.15f);
-        yield return tween.WaitForCompletion();
-        attacker.transform.DOMoveX(attacker.transform.position.x + 1f, 0.25f);
-        DealDamageGA dealDamageGA = new(attacker.AttackPower, new() { HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
-        ActionSystem.Instance.AddReaction(dealDamageGA);
+        if (attackHeroGA.Attacker != null)
+        {
+            Tween tween = attacker.transform.DOMoveX(attacker.transform.position.x - 1f, 0.15f);
+            yield return tween.WaitForCompletion();
+            attacker.transform.DOMoveX(attacker.transform.position.x + 1f, 0.25f);
+            DealDamageGA dealDamageGA = new(attacker.AttackPower, new() { HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
+            ActionSystem.Instance.AddReaction(dealDamageGA);
+        }
+
     }
 
     private IEnumerator KillEnemyPerformer(KillEnemyGA killEnemyGA)
