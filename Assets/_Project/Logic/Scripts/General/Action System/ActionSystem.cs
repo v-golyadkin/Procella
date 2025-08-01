@@ -5,10 +5,11 @@ using System.Collections.Generic;
 public class ActionSystem : Singleton<ActionSystem>
 {
     private List<GameAction> _reactions = null;
-    public bool IsPerforming {  get; private set; } = false;
+    public bool IsPerforming { get; private set; } = false;
     private static Dictionary<Type, List<Action<GameAction>>> preSubs = new();
     private static Dictionary<Type, List<Action<GameAction>>> postSubs = new();
     private static Dictionary<Type, Func<GameAction, IEnumerator>> performers = new();
+
     public void Perform(GameAction action, System.Action OnPerformFinished = null)
     {
         if(IsPerforming) return;
@@ -23,6 +24,13 @@ public class ActionSystem : Singleton<ActionSystem>
     public void AddReaction(GameAction gameAction)
     {
         _reactions?.Add(gameAction);
+    }
+
+    public void ClearAllSubsription()
+    {
+        preSubs.Clear();
+        postSubs.Clear();
+        performers.Clear();
     }
 
     private IEnumerator Flow(GameAction action, Action OnFlowFinished = null)
