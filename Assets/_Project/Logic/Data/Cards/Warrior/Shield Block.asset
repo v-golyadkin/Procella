@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a89b9b67fe666f844bdfdb9e3731d8f3, type: 3}
-  m_Name: Armour Up
+  m_Name: Shield Block
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Add 10 armour.
+  <Description>k__BackingField: Add 5 armour and draw 1 cards.
   <Mana>k__BackingField: 1
   <Image>k__BackingField: {fileID: 21300000, guid: 481ea1b8586d7e14da77161022667d99, type: 3}
   <ManualTargerEffect>k__BackingField:
@@ -22,6 +22,10 @@ MonoBehaviour:
       rid: 1077989239332536413
     <Effect>k__BackingField:
       rid: 1077989239332536414
+  - <TargetMode>k__BackingField:
+      rid: 1077989239332536423
+    <Effect>k__BackingField:
+      rid: 1077989239332536422
   references:
     version: 2
     RefIds:
@@ -34,4 +38,11 @@ MonoBehaviour:
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
         statusEffectType: 0
-        stackCount: 10
+        stackCount: 5
+    - rid: 1077989239332536422
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 1
+    - rid: 1077989239332536423
+      type: {class: NoTM, ns: , asm: Assembly-CSharp}
+      data: 

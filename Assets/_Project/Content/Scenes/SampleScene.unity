@@ -1424,7 +1424,12 @@ MonoBehaviour:
   - name: SFX_DEAL_DAMAGE
     clip: {fileID: 8300000, guid: f473f30cd88aefd48bd6fc5f9d1acb11, type: 3}
     volume: 0.5
-  sfxPrefab: {fileID: 5685764432301570, guid: 94aabd584980e6243b7c44d491021976, type: 3}
+  - name: SFX_DRAW_CARD
+    clip: {fileID: 8300000, guid: 94f8351d9094e8249b33464eadced946, type: 3}
+    volume: 0.25
+  - name: SFX_DISCARD_CARD
+    clip: {fileID: 8300000, guid: 8df6551c14365f54980cc6eb411ecc6e, type: 3}
+    volume: 0.5
 --- !u!1 &752337779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e8af1416fcbb4eb8baca152bd3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroData: {fileID: 11400000, guid: c0459097ba633ff489e124473dc6ad6d, type: 2}
+  heroData: {fileID: 11400000, guid: ef96a1449881bc34a8c50bee0955d59a, type: 2}
   perkData: {fileID: 11400000, guid: a23398abf1e5e87499862f83e0abe8bf, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}

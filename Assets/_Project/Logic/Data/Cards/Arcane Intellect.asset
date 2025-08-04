@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arcane Intellect
   m_EditorClassIdentifier: 
   <Description>k__BackingField: Draw 2 cards
-  <Mana>k__BackingField: 2
+  <Mana>k__BackingField: 1
   <Image>k__BackingField: {fileID: 21300000, guid: 62a9d6d7be8ddee4783737245e813d52, type: 3}
   <ManualTargerEffect>k__BackingField:
     rid: -2

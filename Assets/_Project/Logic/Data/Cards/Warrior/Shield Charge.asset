@@ -10,28 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a89b9b67fe666f844bdfdb9e3731d8f3, type: 3}
-  m_Name: Fire Storm
+  m_Name: Shield Charge
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Add 3 burn to all enemies
+  <Description>k__BackingField: Deal 5 damage and add 5 armor
   <Mana>k__BackingField: 1
-  <Image>k__BackingField: {fileID: 21300000, guid: 3c07701b4862af44da08cbe1bd41888a, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: 481ea1b8586d7e14da77161022667d99, type: 3}
   <ManualTargerEffect>k__BackingField:
-    rid: -2
+    rid: 7859844678589612115
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 1077989263307440224
+      rid: 7859844678589612118
     <Effect>k__BackingField:
-      rid: 1077989263307440217
+      rid: 7859844678589612117
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 1077989263307440217
+    - rid: 7859844678589612115
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 5
+    - rid: 7859844678589612117
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
-        statusEffectType: 1
-        stackCount: 3
-    - rid: 1077989263307440224
-      type: {class: AllEnemiesTM, ns: , asm: Assembly-CSharp}
+        statusEffectType: 0
+        stackCount: 5
+    - rid: 7859844678589612118
+      type: {class: HeroTM, ns: , asm: Assembly-CSharp}
       data: 
