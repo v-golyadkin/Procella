@@ -67,6 +67,7 @@ public class CardSystem : Singleton<CardSystem>
         foreach(var card in _hand)
         {
             CardView cardView = handView.RemoveCard(card);
+            AudioSystem.Instance.PlaySFX("SFX_DISCARD_CARD");
             yield return DiscardCard(cardView);
         }
         _hand.Clear();
@@ -102,6 +103,7 @@ public class CardSystem : Singleton<CardSystem>
         Card card = _drawPile.Draw();
         _hand.Add(card);
         CardView cardView = CardViewCreator.Instance.CreateCardView(card, drawPilePoint.position, drawPilePoint.rotation);
+        AudioSystem.Instance.PlaySFX("SFX_DRAW_CARD");
         yield return handView.AddCard(cardView);
     }
 
