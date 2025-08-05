@@ -25,6 +25,7 @@ public class HealSystem : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.1f);
                 Instantiate(healVFX, target.transform.position, Quaternion.identity);
+                AudioSystem.Instance.PlaySFX("SFX_HEAL");
                 target.Heal(healGA.Amount);
                 yield return new WaitForSeconds(0.2f);
             }

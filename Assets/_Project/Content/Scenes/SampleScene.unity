@@ -1430,6 +1430,9 @@ MonoBehaviour:
   - name: SFX_DISCARD_CARD
     clip: {fileID: 8300000, guid: 8df6551c14365f54980cc6eb411ecc6e, type: 3}
     volume: 0.5
+  - name: SFX_HEAL
+    clip: {fileID: 8300000, guid: 64d99ccd62bf2ef4b82e2dc81f91a8e4, type: 3}
+    volume: 0.5
 --- !u!1 &752337779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,7 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8e8af1416fcbb4eb8baca152bd3dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroData: {fileID: 11400000, guid: ef96a1449881bc34a8c50bee0955d59a, type: 2}
+  heroData: {fileID: 11400000, guid: c0459097ba633ff489e124473dc6ad6d, type: 2}
   perkData: {fileID: 11400000, guid: a23398abf1e5e87499862f83e0abe8bf, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}
