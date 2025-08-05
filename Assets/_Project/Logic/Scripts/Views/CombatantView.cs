@@ -33,12 +33,12 @@ public class CombatantView : MonoBehaviour
         healthText.text = $"HP: {CurrentHelth}";
     }
 
-    public void Damage(int damageAmount)
+    public void Damage(int damageAmount, bool ignoredArmour)
     {
         int remainingDamage = damageAmount;
         int currentArmour = GetStatusEffectStacks(StatusEffectType.ARMOR);
 
-        if(currentArmour > 0)
+        if(currentArmour > 0 && !ignoredArmour)
         {
             if(currentArmour >= damageAmount)
             {

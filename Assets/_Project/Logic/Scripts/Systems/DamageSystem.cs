@@ -21,7 +21,7 @@ public class DamageSystem : MonoBehaviour
     {
         foreach(var target in dealDamageGA.Targets)
         {
-            target.Damage(dealDamageGA.Amount);
+            target.Damage(dealDamageGA.Amount, dealDamageGA.IgnoredArmour);
             Instantiate(damageVFX, target.transform.position, Quaternion.identity);
             AudioSystem.Instance.PlaySFX("SFX_DEAL_DAMAGE");
             yield return new WaitForSeconds(0.15f);
@@ -32,10 +32,14 @@ public class DamageSystem : MonoBehaviour
                     KillEnemyGA killEnemyGA = new(enemyView);
                     ActionSystem.Instance.AddReaction(killEnemyGA);
                 }
+                else
+                {
+                    target.Heal(target.MaxHealth);
+                }
             }
             else
             {
-                //TO DO Game Over logic
+                //TO DO Game Over logic             
             }
         }
     }
