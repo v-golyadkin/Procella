@@ -25,5 +25,9 @@ public class MatchSetupSystem : MonoBehaviour
             ActionSystem.Instance.ClearAllSubsription();
             return;
         }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            EnemySystem.Instance.Setup(enemyDatas);
+        }
     }
 }
