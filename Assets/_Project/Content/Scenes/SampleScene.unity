@@ -813,7 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338724918}
   m_Layer: 0
-  m_Name: Slot 1
+  m_Name: Slot 3
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -954,9 +954,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 338724918}
-  - {fileID: 1157830728}
   - {fileID: 1676512298}
+  - {fileID: 1157830728}
+  - {fileID: 338724918}
   m_Father: {fileID: 2088791060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &369111500
@@ -972,9 +972,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - {fileID: 338724918}
-  - {fileID: 1157830728}
   - {fileID: 1676512298}
+  - {fileID: 1157830728}
+  - {fileID: 338724918}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,10 +1524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroData: {fileID: 11400000, guid: c0459097ba633ff489e124473dc6ad6d, type: 2}
   perkData: {fileID: 11400000, guid: 7225bfcce14a8364ca32a654d2adcc10, type: 2}
-  enemyDatas:
-  - {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}
-  - {fileID: 11400000, guid: 6756881ae40426442b295b638d52fe84, type: 2}
-  - {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
+  levelData: {fileID: 11400000, guid: 56807ef895eb4744cbbf83974674cbd2, type: 2}
 --- !u!1001 &785715109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2353,7 +2350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676512298}
   m_Layer: 0
-  m_Name: Slot 3
+  m_Name: Slot 1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
