@@ -12,19 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf76034fe5992e4b946749d01739ceb, type: 3}
   m_Name: ArmourUp
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: a3130d882e628ca44932b7eb7ed1011a, type: 3}
   <PerkCondition>k__BackingField:
-    rid: 1077989330732187803
+    rid: 7859844724580417538
   <AutoTargetEffect>k__BackingField:
-    rid: -2
-  <UseAutoTarget>k__BackingField: 0
+    rid: 7859844722827722835
+  <UseAutoTarget>k__BackingField: 1
   <UseActionCasterAsTarget>k__BackingField: 0
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 1077989330732187803
-      type: {class: OnEnemyAttackCondition, ns: , asm: Assembly-CSharp}
+    - rid: 7859844722827722835
+      type: {class: AutoTargetEffect, ns: , asm: Assembly-CSharp}
       data:
-        timing: 0
+        <TargetMode>k__BackingField:
+          rid: 7859844724580417620
+        <Effect>k__BackingField:
+          rid: 7859844724580417619
+    - rid: 7859844724580417538
+      type: {class: OnEnemyTurnCondition, ns: , asm: Assembly-CSharp}
+      data:
+        timing: 1
+    - rid: 7859844724580417619
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 5
+    - rid: 7859844724580417620
+      type: {class: HeroTM, ns: , asm: Assembly-CSharp}
+      data: 

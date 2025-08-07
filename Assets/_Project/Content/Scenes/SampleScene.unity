@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroData: {fileID: 11400000, guid: c0459097ba633ff489e124473dc6ad6d, type: 2}
-  perkData: {fileID: 11400000, guid: a23398abf1e5e87499862f83e0abe8bf, type: 2}
+  perkData: {fileID: 11400000, guid: 7225bfcce14a8364ca32a654d2adcc10, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}
   - {fileID: 11400000, guid: 6756881ae40426442b295b638d52fe84, type: 2}
