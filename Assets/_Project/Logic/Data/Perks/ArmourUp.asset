@@ -32,7 +32,7 @@ MonoBehaviour:
     - rid: 7859844724580417538
       type: {class: OnEnemyTurnCondition, ns: , asm: Assembly-CSharp}
       data:
-        timing: 1
+        timing: 0
     - rid: 7859844724580417619
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:

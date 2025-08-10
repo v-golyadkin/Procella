@@ -18,7 +18,9 @@ public class HeroSystem : Singleton<HeroSystem>
 
     public void Setup(HeroData heroData)
     {
-        HeroView.Setup(heroData);
+        HeroView heroView = HeroViewCreator.Instance.CreateHeroView(heroData);
+        HeroView = heroView;
+        //HeroView.Setup(heroData);
     }
 
     //Reactions
