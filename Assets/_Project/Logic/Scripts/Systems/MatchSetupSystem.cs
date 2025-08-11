@@ -9,12 +9,12 @@ public class MatchSetupSystem : MonoBehaviour
     [SerializeField] private LevelData levelData;
     private void Start()
     {
-        HeroSystem.Instance.Setup(heroData);
-        EnemySystem.Instance.Setup(levelData.Enemies);
-        CardSystem.Instance.Setup(heroData.Deck);
+        //HeroSystem.Instance.Init(heroData);
+        //EnemySystem.Instance.Init(levelData.Enemies);
+        //CardSystem.Instance.Init(heroData.Deck);
         //PerkSystem.Instance.AddPerk(new Perk(perkData));
-        DrawCardsGA drawCardsGA = new(5);
-        ActionSystem.Instance.Perform(drawCardsGA);
+        //DrawCardsGA drawCardsGA = new(5);
+        //ActionSystem.Instance.Perform(drawCardsGA);
     }
 
     private void Update()
@@ -27,7 +27,7 @@ public class MatchSetupSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            EnemySystem.Instance.Setup(levelData.Enemies);
+            EnemySystem.Instance.Init(levelData.Enemies);
         }
     }
 }
