@@ -30,7 +30,7 @@ public class CardSystem : Singleton<CardSystem>
 
     //Setup
 
-    public void Setup(List<CardData> deckData)
+    public void Init(List<CardData> deckData)
     {
         foreach(var cardData in deckData)
         {
