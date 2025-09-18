@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ActionSystem : Singleton<ActionSystem>
 {
@@ -10,15 +11,44 @@ public class ActionSystem : Singleton<ActionSystem>
     private static Dictionary<Type, List<Action<GameAction>>> postSubs = new();
     private static Dictionary<Type, Func<GameAction, IEnumerator>> performers = new();
 
+    private Queue<GameAction> actionQueue = new Queue<GameAction>();
+    private bool isProcessingQueue = false;
+
     public void Perform(GameAction action, System.Action OnPerformFinished = null)
     {
-        if(IsPerforming) return;
-        IsPerforming = true;
-        StartCoroutine(Flow(action, () =>
+        actionQueue.Enqueue(action);
+
+        if (!isProcessingQueue && !IsPerforming)
         {
-            IsPerforming = false;
-            OnPerformFinished?.Invoke();
-        }));
+            StartCoroutine(ProcessQueue());
+        }
+    }
+
+    private IEnumerator ProcessQueue()
+    {
+        isProcessingQueue = true;
+
+        while (actionQueue.Count > 0)
+        {
+            var action = actionQueue.Dequeue();
+            bool actionCompleted = false;
+
+            IsPerforming = true;
+            StartCoroutine(Flow(action, () =>
+            {
+                IsPerforming = false;
+                actionCompleted = true;
+            }));
+
+            yield return new WaitUntil(() => actionCompleted);
+        }
+
+        isProcessingQueue = false;
+    }
+
+    public void ClearQueue()
+    {
+        actionQueue.Clear();
     }
 
     public void AddReaction(GameAction gameAction)
