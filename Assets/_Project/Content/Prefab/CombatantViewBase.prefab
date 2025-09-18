@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusEffectUIPrefab: {fileID: 4241282781392147668, guid: b7f8f16ae9be13c47b67de64c315c4b4, type: 3}
   armourSprite: {fileID: 21300000, guid: c6b5394c0cd2f804c9c20581ed701f3f, type: 3}
-  burnSprite: {fileID: 21300000, guid: 52744428a9fdd1b488b0be25f7d20349, type: 3}
+  burnSprite: {fileID: 21300000, guid: 03a63d777f9e00c40bc52cef7d47ca2d, type: 3}
 --- !u!114 &4052140663866804611
 MonoBehaviour:
   m_ObjectHideFlags: 0
