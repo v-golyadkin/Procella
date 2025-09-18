@@ -25,9 +25,39 @@ public class EnemySystem : Singleton<EnemySystem>
 
     public void Init(List<EnemyData> enemyDatas)
     {
-        foreach(var enemyData in enemyDatas)
-        {
+        SpawnEnemy(enemyDatas);
+    }
+
+    public void SpawnEnemy(List<EnemyData> enemyDatas)
+    {
+        foreach (var enemyData in enemyDatas)
+        {   
             enemyBoardView.AddEnemy(enemyData);
+        }
+    }
+
+    public void KillAllEnemies()
+    {
+        StartCoroutine(KillAllEnemiesCoroutine());
+    }
+
+    private IEnumerator KillAllEnemiesCoroutine()
+    {
+        var enemiesToKill = new List<EnemyView>(enemyBoardView.EnemyViews);
+
+        foreach (var enemyView in enemiesToKill)
+        {
+            KillEnemyGA killEnemyGA = new KillEnemyGA(enemyView);
+
+            bool performed = true;
+            ActionSystem.Instance.Perform(killEnemyGA, () =>
+            {
+                performed = false;
+            });
+
+            yield return new WaitUntil(() => performed);
+
+            yield return null;
         }
     }
 

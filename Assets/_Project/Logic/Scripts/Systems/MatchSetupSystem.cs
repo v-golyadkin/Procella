@@ -29,5 +29,15 @@ public class MatchSetupSystem : MonoBehaviour
         {
             EnemySystem.Instance.Init(levelData.Enemies);
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            EnemySystem.Instance.KillAllEnemies();
+        }
+    }
+
+    public void StartLevel(LevelData levelData)
+    {
+        EnemySystem.Instance.SpawnEnemy(levelData.Enemies);
     }
 }

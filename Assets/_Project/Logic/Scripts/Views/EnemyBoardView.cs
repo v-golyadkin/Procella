@@ -10,6 +10,10 @@ public class EnemyBoardView : MonoBehaviour
 
     public void AddEnemy(EnemyData enemyData)
     {
+        if(enemyData == null)
+        {
+            return;
+        }
         Transform slot = slots[EnemyViews.Count];
         EnemyView enemyView = EnemyViewCreator.Instance.CreateEnemyView(enemyData, slot.position, slot.rotation);
         enemyView.transform.parent = slot;
@@ -23,4 +27,5 @@ public class EnemyBoardView : MonoBehaviour
         yield return tween.WaitForCompletion();
         Destroy(enemyView.gameObject);
     }
+
 }
