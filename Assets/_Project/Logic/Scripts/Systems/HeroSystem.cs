@@ -33,11 +33,17 @@ public class HeroSystem : Singleton<HeroSystem>
 
     private void EnemyTurnPostReaction(EnemyTurnGA enemyTurnGA)
     {
-        int burnStack = HeroView.GetStatusEffectStacks(StatusEffectType.BURN);
-        if(burnStack > 0)
+        int burnStacks = HeroView.GetStatusEffectStacks(StatusEffectType.BURN);
+        int poisonStacks = HeroView.GetStatusEffectStacks(StatusEffectType.POISON);
+        if(burnStacks > 0)
         {
-            ApplyBurnGA applyBurnGA = new(burnStack, HeroView);
+            ApplyBurnGA applyBurnGA = new(burnStacks, HeroView);
             ActionSystem.Instance.AddReaction(applyBurnGA);
+        }
+        if(poisonStacks > 0)
+        {
+            ApplyPoisonGA applyPoisonGA = new(poisonStacks, HeroView);
+            ActionSystem.Instance.AddReaction(applyPoisonGA);
         }
         DrawCardsGA drawCardsGA = new(5);
         ActionSystem.Instance.AddReaction(drawCardsGA);

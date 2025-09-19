@@ -68,10 +68,16 @@ public class EnemySystem : Singleton<EnemySystem>
         foreach(var enemy in enemyBoardView.EnemyViews)
         {
             int burnStacks = enemy.GetStatusEffectStacks(StatusEffectType.BURN);
+            int poisonStacks = enemy.GetStatusEffectStacks(StatusEffectType.POISON);
             if(burnStacks > 0)
             {
                 ApplyBurnGA applyBurnGA = new(burnStacks, enemy);
                 ActionSystem.Instance.AddReaction(applyBurnGA);
+            }
+            if(poisonStacks > 0)
+            {
+                ApplyPoisonGA applyPoisonGA = new(poisonStacks, enemy);
+                ActionSystem.Instance.AddReaction(applyPoisonGA);
             }
             AttackHeroGA attackHeroGA = new(enemy);
             ActionSystem.Instance.AddReaction(attackHeroGA);
