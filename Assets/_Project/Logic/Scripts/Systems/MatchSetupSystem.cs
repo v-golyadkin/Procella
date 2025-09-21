@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,13 @@ public class MatchSetupSystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
+            if (EnemySystem.Instance.Enemies.Count != 0)
+            {
+                Debug.Log("Have enemy in board");
+                //EnemySystem.Instance.KillAllEnemies();
+                return;
+            }
+
             EnemySystem.Instance.Init(levelData.Enemies);
         }
 
