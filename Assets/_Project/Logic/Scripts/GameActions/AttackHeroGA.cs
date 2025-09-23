@@ -6,6 +6,10 @@ public class AttackHeroGA : GameAction, IHaveCaster
 
     public int Damage { get; private set; }
 
+    public Effect Effect { get; private set; }
+
+    public bool IsBuff { get; private set; }
+
     public AttackHeroGA(EnemyView attacker)
     {
         Attacker = attacker;
@@ -17,5 +21,13 @@ public class AttackHeroGA : GameAction, IHaveCaster
         Attacker = attacker;
         Caster = Attacker;
         Damage = damage;
+    }
+
+    public AttackHeroGA(EnemyView attacker, Effect attackEffect, bool isBuff = false)
+    {
+        Attacker = attacker;
+        Caster = Attacker;
+        Effect = attackEffect;
+        IsBuff = isBuff;
     }
 }

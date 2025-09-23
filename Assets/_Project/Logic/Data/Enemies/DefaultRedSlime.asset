@@ -14,8 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 21300000, guid: 5c72f8fc5e4eb484db21095966b6050d, type: 3}
   <Health>k__BackingField: 25
-  <AttackPower>k__BackingField: 10
   <Armour>k__BackingField: 0
   <Attacks>k__BackingField:
-  - {fileID: 11400000, guid: 98f2fa3d353c3484bbc64ce388aab535, type: 2}
-  - {fileID: 11400000, guid: 06f85f02d65e73a469795b368dd95136, type: 2}
+  - AttackDescription: ATK
+    <attackEffect>k__BackingField:
+      rid: 4435883433383166075
+    isBuff: 0
+  - AttackDescription: ATK
+    <attackEffect>k__BackingField:
+      rid: 4435883433383166076
+    isBuff: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4435883433383166075
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 5
+        ignoredArmour: 0
+    - rid: 4435883433383166076
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 10
+        ignoredArmour: 0

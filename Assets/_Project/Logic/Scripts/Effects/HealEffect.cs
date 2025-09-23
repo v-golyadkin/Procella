@@ -9,4 +9,6 @@ public class HealEffect : Effect
         HealGA healGA = new(healAmount, targets, caster);
         return healGA;
     }
+
+    public override int GetValue() => healAmount;
 }

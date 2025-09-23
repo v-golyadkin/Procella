@@ -91,11 +91,24 @@ public class EnemySystem : Singleton<EnemySystem>
         EnemyView attacker = attackHeroGA.Attacker;
         if (attackHeroGA.Attacker != null)
         {
-            Tween tween = attacker.transform.DOMoveX(attacker.transform.position.x - 1f, 0.15f);
-            yield return tween.WaitForCompletion();
-            attacker.transform.DOMoveX(attacker.transform.position.x + 1f, 0.25f);
-            DealDamageGA dealDamageGA = new(attackHeroGA.Damage, new() { HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
-            ActionSystem.Instance.AddReaction(dealDamageGA);
+            //DealDamageGA dealDamageGA = new(attackHeroGA.Damage, new() { HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
+            //ActionSystem.Instance.AddReaction(dealDamageGA);
+            if (attackHeroGA.IsBuff)
+            {
+                Tween tween = attacker.transform.DOMoveY(attacker.transform.position.y + 0.15f, 0.15f);
+                yield return tween.WaitForCompletion();
+                attacker.transform.DOMoveY(attacker.transform.position.y - 0.15f, 0.15f);
+                PerformEffectGA performEffectGA = new(attackHeroGA.Effect, attackHeroGA.Attacker);
+                ActionSystem.Instance.AddReaction(performEffectGA);
+            }
+            else
+            {
+                Tween tween = attacker.transform.DOMoveX(attacker.transform.position.x - 1f, 0.15f);
+                yield return tween.WaitForCompletion();
+                attacker.transform.DOMoveX(attacker.transform.position.x + 1f, 0.25f);
+                PerformEffectGA performEffectGA = new(attackHeroGA.Effect, HeroSystem.Instance.HeroView);
+                ActionSystem.Instance.AddReaction(performEffectGA);
+            }        
             attacker.UpdateAttackText();
         }
     }

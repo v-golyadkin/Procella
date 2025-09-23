@@ -10,4 +10,6 @@ public class AddStatusEffectEffect : Effect
     {
         return new AddStatusEffectGA(statusEffectType, stackCount, targets);
     }
+
+    public override int GetValue() => stackCount;
 }

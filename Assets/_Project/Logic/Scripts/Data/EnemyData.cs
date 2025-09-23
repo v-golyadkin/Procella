@@ -6,8 +6,6 @@ public class EnemyData : ScriptableObject
 {
     [field: SerializeField] public Sprite Image {  get; private set; }
     [field: SerializeField] public int Health {  get; private set; }
-    [field: SerializeField] public int AttackPower {  get; private set; }
     [field: SerializeField] public int Armour {  get; private set; }
-
-    [field: SerializeField] public List<EnemyAttack> Attacks { get; private set; } = new List<EnemyAttack>();
+    [field: SerializeField] public List<EnemyAttackEffect> Attacks { get; private set; } = new List<EnemyAttackEffect>();
 }

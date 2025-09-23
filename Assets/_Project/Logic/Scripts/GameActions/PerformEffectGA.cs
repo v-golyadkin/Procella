@@ -9,4 +9,10 @@ public class PerformEffectGA : GameAction
         Effect = effect;
         Targets = targets == null ? null : new(targets);
     }
+
+    public PerformEffectGA(Effect effect, CombatantView target)
+    {
+        Effect = effect;
+        Targets = target == null ? null : new List<CombatantView> { target };
+    }
 }

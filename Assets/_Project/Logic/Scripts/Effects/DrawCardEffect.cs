@@ -9,4 +9,7 @@ public class DrawCardEffect : Effect
         DrawCardsGA drawCardsGA = new(drawAmount);
         return drawCardsGA;
     }
+
+    public override int GetValue() => drawAmount;
+
 }

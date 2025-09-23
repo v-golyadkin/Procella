@@ -6,15 +6,12 @@ public class EnemyView : CombatantView
 {
     [SerializeField] private TMP_Text attackText;
 
-    public int AttackPower {  get; set; }
-
-    public List<EnemyAttack> CurrentAttacks { get; private set; } = new List<EnemyAttack>();
-    public EnemyAttack NextAttack { get; private set; }
+    public List<EnemyAttackEffect> CurrentAttacks { get; private set; } = new List<EnemyAttackEffect>();
+    public EnemyAttackEffect NextAttack { get; private set; }
 
     public void Setup(EnemyData enemyData)
     {
-        AttackPower = enemyData.AttackPower;
-        CurrentAttacks = new List<EnemyAttack>(enemyData.Attacks);
+        CurrentAttacks = new List<EnemyAttackEffect>(enemyData.Attacks);
         
         ChooseNextAttack();
         UpdateAttackText();
@@ -25,13 +22,22 @@ public class EnemyView : CombatantView
     {
         if (NextAttack != null)
         {
-            attackText.text = $"{NextAttack.GetAttackName()}: {NextAttack.GetDamage()}";
+            attackText.text = $"{NextAttack.AttackDescription}: {NextAttack.attackEffect.GetValue()}";
         }
-        else
-        {
-            attackText.text = $"ATK: {AttackPower}";
-        }
+    }
 
+    public void UpdateAttackText(int damage)
+    {
+        //if (NextAttack != null)
+        //{
+        //    attackText.text = $"{NextAttack.GetAttackName()}: {damage}";
+        //}
+        //else
+        //{
+        //    attackText.text = $"ATK: {AttackPower}";
+        //}
+        attackText.text = $"{NextAttack.AttackDescription}: {damage}";
+        Debug.Log(damage);
     }
 
     public void ChooseNextAttack()

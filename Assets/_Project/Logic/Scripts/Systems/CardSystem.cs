@@ -84,7 +84,8 @@ public class CardSystem : Singleton<CardSystem>
 
         if(playCardGA.Card.ManualTargetEffect != null)
         {
-            PerformEffectGA performEffectGA = new(playCardGA.Card.ManualTargetEffect, new() { playCardGA.ManualTarget });
+            EnemyView target = playCardGA.ManualTarget;
+            PerformEffectGA performEffectGA = new(playCardGA.Card.ManualTargetEffect, target);
             ActionSystem.Instance.AddReaction(performEffectGA);
         }
 

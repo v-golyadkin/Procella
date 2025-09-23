@@ -14,7 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 21300000, guid: 5c72f8fc5e4eb484db21095966b6050d, type: 3}
   <Health>k__BackingField: 30
-  <AttackPower>k__BackingField: 10
   <Armour>k__BackingField: 10
   <Attacks>k__BackingField:
-  - {fileID: 11400000, guid: e02c6f03c1344f34b986c37a5b25351e, type: 2}
+  - AttackDescription: ATK
+    <attackEffect>k__BackingField:
+      rid: 4435883433383166067
+    isBuff: 0
+  - AttackDescription: BURN
+    <attackEffect>k__BackingField:
+      rid: 4435883433383166077
+    isBuff: 0
+  - AttackDescription: ARMOR
+    <attackEffect>k__BackingField:
+      rid: 4435883433383166078
+    isBuff: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 4435883433383166067
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 10
+        ignoredArmour: 0
+    - rid: 4435883433383166077
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 1
+        stackCount: 3
+    - rid: 4435883433383166078
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 10
