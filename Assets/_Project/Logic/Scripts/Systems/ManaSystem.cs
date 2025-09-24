@@ -45,7 +45,14 @@ public class ManaSystem : Singleton<ManaSystem>
 
     private IEnumerator RefillManaPerformer(RefillManaGA refillManaGA)
     {
-        _currentMana = MAX_MANA;
+        _currentMana += refillManaGA.Amount;
+
+        if(_currentMana > MAX_MANA)
+        {
+            _currentMana = MAX_MANA;
+        }
+
+        yield return new WaitForSeconds(0.25f);
         manaUI.UpdateManaText(_currentMana);
         yield return null;
     }
@@ -54,7 +61,7 @@ public class ManaSystem : Singleton<ManaSystem>
 
     private void EnemyTurnPostReaction(EnemyTurnGA enemyTurnGA)
     {
-        RefillManaGA refillManaGA = new();
+        RefillManaGA refillManaGA = new(MAX_MANA);
         ActionSystem.Instance.AddReaction(refillManaGA);
     }
 }
