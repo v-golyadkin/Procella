@@ -22,10 +22,6 @@ MonoBehaviour:
       rid: 1077989284631543892
     <Effect>k__BackingField:
       rid: 1077989284631543891
-  - <TargetMode>k__BackingField:
-      rid: 1077989330732187794
-    <Effect>k__BackingField:
-      rid: 1077989330732187795
   references:
     version: 2
     RefIds:
@@ -38,10 +34,3 @@ MonoBehaviour:
     - rid: 1077989284631543892
       type: {class: HeroTM, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 1077989330732187794
-      type: {class: NoTM, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 1077989330732187795
-      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
-      data:
-        drawAmount: 1
