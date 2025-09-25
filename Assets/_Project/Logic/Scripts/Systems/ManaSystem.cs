@@ -52,7 +52,7 @@ public class ManaSystem : Singleton<ManaSystem>
             _currentMana = MAX_MANA;
         }
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.25f); // delay before text update
         manaUI.UpdateManaText(_currentMana);
         yield return null;
     }
