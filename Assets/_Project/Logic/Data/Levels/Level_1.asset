@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c50e4138a02d224ab892a134f1b5c16, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  <LeftEnemy>k__BackingField: {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
-  <MiddleEnemy>k__BackingField: {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}
-  <RightEnemy>k__BackingField: {fileID: 11400000, guid: 6756881ae40426442b295b638d52fe84, type: 2}
   <Enemies>k__BackingField:
-  - {fileID: 11400000, guid: 87fc641c9b1b42e48a2dd83b0e1d1a06, type: 2}
-  - {fileID: 11400000, guid: e6c2936a10c9b6047877424b62cc881e, type: 2}
-  - {fileID: 11400000, guid: 6756881ae40426442b295b638d52fe84, type: 2}
+  - {fileID: 11400000, guid: e8c7ee956b9980d44a2eb2d92a96de59, type: 2}
+  - {fileID: 11400000, guid: 6feda2996277cf74298e6717eb794f4c, type: 2}
+  - {fileID: 11400000, guid: 0e18414b6e067e0479c7a48b3d3dacd1, type: 2}
