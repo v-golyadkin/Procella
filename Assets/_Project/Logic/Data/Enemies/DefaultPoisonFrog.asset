@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultPoisonFrog
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 907666870, guid: 882f8359e78524144a5053726d90a8ec, type: 3}
-  <Health>k__BackingField: 50
+  <Health>k__BackingField: 25
   <Armour>k__BackingField: 0
   <Attacks>k__BackingField:
   - AttackDescription: ATK
@@ -30,10 +30,10 @@ MonoBehaviour:
     - rid: 4435883504664051793
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 15
+        damageAmount: 10
         ignoredArmour: 0
     - rid: 4435883504664051794
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
         statusEffectType: 2
-        stackCount: 5
+        stackCount: 3

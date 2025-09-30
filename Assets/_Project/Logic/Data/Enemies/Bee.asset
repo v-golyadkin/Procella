@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bee
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 308430101, guid: 7dfa180e5dabb6a4b89e00b017df73ee, type: 3}
-  <Health>k__BackingField: 50
+  <Health>k__BackingField: 25
   <Armour>k__BackingField: 0
   <Attacks>k__BackingField:
   - AttackDescription: ATK
