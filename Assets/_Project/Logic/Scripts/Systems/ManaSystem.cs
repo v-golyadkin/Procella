@@ -14,6 +14,7 @@ public class ManaSystem : Singleton<ManaSystem>
     {
         ActionSystem.AttachPerformer<SpendManaGA>(SpendManaPerformer);
         ActionSystem.AttachPerformer<RefillManaGA>(RefillManaPerformer);
+        ActionSystem.AttachPerformer<StartBattleGA>(StartBattlePerformer);
         ActionSystem.SubscribeReaction<EnemyTurnGA>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
@@ -21,6 +22,7 @@ public class ManaSystem : Singleton<ManaSystem>
     {
         ActionSystem.DetachPerformer<SpendManaGA>();
         ActionSystem.DetachPerformer<RefillManaGA>();
+        ActionSystem.DetachPerformer<StartBattleGA>();
         ActionSystem.UnsubscribeReaction<EnemyTurnGA>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
@@ -54,6 +56,14 @@ public class ManaSystem : Singleton<ManaSystem>
 
         yield return new WaitForSeconds(0.25f); // delay before text update
         manaUI.UpdateManaText(_currentMana);
+        yield return null;
+    }
+
+    private IEnumerator StartBattlePerformer(StartBattleGA startBattleGA)
+    {
+        _currentMana = MAX_MANA;
+        manaUI.UpdateManaText(_currentMana);
+
         yield return null;
     }
 

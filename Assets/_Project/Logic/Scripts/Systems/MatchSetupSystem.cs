@@ -47,5 +47,6 @@ public class MatchSetupSystem : MonoBehaviour
     public void StartLevel(LevelData levelData)
     {
         EnemySystem.Instance.SpawnEnemy(levelData.Enemies);
+        BattleSystem.Instance.StartBattle();
     }
 }

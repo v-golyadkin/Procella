@@ -14,11 +14,14 @@ public class CardSystem : Singleton<CardSystem>
     private readonly List<Card> _discardPile = new();
     private readonly List<Card> _hand = new();
 
+    //public int CardsInHand => _hand.Count;
+
     private void OnEnable()
     {
         ActionSystem.AttachPerformer<DrawCardsGA>(DrawCardPerformer);
         ActionSystem.AttachPerformer<DiscardAllCardsGA>(DiscardAllCardsPerformer);
         ActionSystem.AttachPerformer<PlayCardGA>(PlayCardPerformer);
+        ActionSystem.AttachPerformer<StartBattleGA>(StartBattlePerformer);
     }
 
     private void OnDisable()
@@ -26,6 +29,7 @@ public class CardSystem : Singleton<CardSystem>
         ActionSystem.DetachPerformer<DrawCardsGA>();
         ActionSystem.DetachPerformer<DiscardAllCardsGA>();
         ActionSystem.DetachPerformer<PlayCardGA>();
+        ActionSystem.DetachPerformer<StartBattleGA>();
     }
 
     //Setup
@@ -95,6 +99,17 @@ public class CardSystem : Singleton<CardSystem>
             PerformEffectGA performEffectGA = new(effectWrapper.Effect, targets);
             ActionSystem.Instance.AddReaction(performEffectGA);
         }
+    }
+
+    private IEnumerator StartBattlePerformer(StartBattleGA startBattleGA)
+    {
+        DiscardAllCardsGA discardAllCardsGA = new();
+        ActionSystem.Instance.Perform(discardAllCardsGA);
+
+        DrawCardsGA drawCardsGA = new(5);
+        ActionSystem.Instance.Perform(drawCardsGA);
+
+        yield return null;
     }
 
     //Helpers
