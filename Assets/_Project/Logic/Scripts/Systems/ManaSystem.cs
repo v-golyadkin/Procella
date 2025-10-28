@@ -14,7 +14,8 @@ public class ManaSystem : Singleton<ManaSystem>
     {
         ActionSystem.AttachPerformer<SpendManaGA>(SpendManaPerformer);
         ActionSystem.AttachPerformer<RefillManaGA>(RefillManaPerformer);
-        ActionSystem.AttachPerformer<StartBattleGA>(StartBattlePerformer);
+        //ActionSystem.AttachPerformer<StartBattleGA>(StartBattlePerformer);
+        ActionSystem.SubscribeReaction<StartBattleGA>(OnStartBattle, ReactionTiming.PRE);
         ActionSystem.SubscribeReaction<EnemyTurnGA>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
@@ -22,7 +23,8 @@ public class ManaSystem : Singleton<ManaSystem>
     {
         ActionSystem.DetachPerformer<SpendManaGA>();
         ActionSystem.DetachPerformer<RefillManaGA>();
-        ActionSystem.DetachPerformer<StartBattleGA>();
+        //ActionSystem.DetachPerformer<StartBattleGA>();
+        ActionSystem.UnsubscribeReaction<StartBattleGA>(OnStartBattle, ReactionTiming.PRE);
         ActionSystem.UnsubscribeReaction<EnemyTurnGA>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
@@ -64,10 +66,20 @@ public class ManaSystem : Singleton<ManaSystem>
         _currentMana = MAX_MANA;
         manaUI.UpdateManaText(_currentMana);
 
+        Debug.Log("Mana System: Start Battle Performer");
+
         yield return null;
     }
 
     //Reactions
+
+    private void OnStartBattle(StartBattleGA startBattleGA)
+    {
+        _currentMana = MAX_MANA;
+        manaUI.UpdateManaText(_currentMana);
+
+        Debug.Log("Mana System: OnStartBattle");
+    }
 
     private void EnemyTurnPostReaction(EnemyTurnGA enemyTurnGA)
     {

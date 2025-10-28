@@ -1,10 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleSystem : Singleton<BattleSystem>
 {
-    private int _currentLevel = 1 ;
+    private int _currentLevel = 1;
 
     public int CurrentLevel => _currentLevel;
 
@@ -12,22 +13,46 @@ public class BattleSystem : Singleton<BattleSystem>
 
     private void OnEnable()
     {
-        ActionSystem.SubscribeReaction<KillEnemyGA>(OnEnemiesKilled, ReactionTiming.POST);
+        ActionSystem.SubscribeReaction<StartBattleGA>(StartBattlePostReaction, ReactionTiming.POST);
+        ActionSystem.SubscribeReaction<KillEnemyGA>(EnemiesKilledPostReaction, ReactionTiming.POST);
     }
 
     private void OnDisable()
     {
-        ActionSystem.UnsubscribeReaction<KillEnemyGA>(OnEnemiesKilled, ReactionTiming.POST);
+        ActionSystem.UnsubscribeReaction<StartBattleGA>(StartBattlePostReaction, ReactionTiming.POST);
+        ActionSystem.UnsubscribeReaction<KillEnemyGA>(EnemiesKilledPostReaction, ReactionTiming.POST);
     }
 
     //Reactions
-    private void OnEnemiesKilled(KillEnemyGA killEnemyGA)
+    private void EnemiesKilledPostReaction(KillEnemyGA killEnemyGA)
     {
         if(EnemySystem.Instance.Enemies.Count == 0)
         {
-            Debug.Log("Enemies Die");         
-            StartBattle(_currentLevel);
+            StartCoroutine(StartNewBattle());
         }
+    }
+
+    private void StartBattlePostReaction(StartBattleGA startBattleGA)
+    {
+        if (CurrentLevel > levels.Count)
+        {
+            Debug.Log("Finish");
+        }
+        else
+        {
+            EnemySystem.Instance.Init(levels[_currentLevel - 1].Enemies);
+            _currentLevel++;
+        }
+    }
+
+    //Helpers
+
+    private IEnumerator StartNewBattle()
+    {
+        yield return new WaitForEndOfFrame();
+
+        StartBattleGA startBattleGA = new();
+        ActionSystem.Instance.Perform(startBattleGA);
     }
 
     public void StartBattle(int currentLevel = 1)
@@ -42,8 +67,8 @@ public class BattleSystem : Singleton<BattleSystem>
         }
         else
         {
-            StartBattleGA startBattleGA = new();
-            ActionSystem.Instance.Perform(startBattleGA);
+            //StartBattleGA startBattleGA = new();
+            //ActionSystem.Instance.Perform(startBattleGA);
 
             EnemySystem.Instance.Init(levels[currentLevel - 1].Enemies);
             _currentLevel++;

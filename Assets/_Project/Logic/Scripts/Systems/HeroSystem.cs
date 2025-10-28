@@ -20,7 +20,6 @@ public class HeroSystem : Singleton<HeroSystem>
     {
         HeroView heroView = HeroViewCreator.Instance.CreateHeroView(heroData);
         HeroView = heroView;
-        //HeroView.Setup(heroData);
     }
 
     //Reactions

@@ -9,10 +9,11 @@ public class EntryPoint : MonoBehaviour
     private void Start()
     {
         HeroSystem.Instance.Init(heroData);
-        EnemySystem.Instance.Init(levelData.Enemies);
         CardSystem.Instance.Init(heroData.Deck);
+ 
+        StartBattleGA startBattleGA = new StartBattleGA();
+        ActionSystem.Instance.Perform(startBattleGA);
+        
         //PerkSystem.Instance.AddPerk(new Perk(perkData));
-        DrawCardsGA drawCardsGA = new(5);
-        ActionSystem.Instance.Perform(drawCardsGA);
     }
 }

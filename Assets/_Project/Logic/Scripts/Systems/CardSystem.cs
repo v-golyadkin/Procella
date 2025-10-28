@@ -14,14 +14,13 @@ public class CardSystem : Singleton<CardSystem>
     private readonly List<Card> _discardPile = new();
     private readonly List<Card> _hand = new();
 
-    //public int CardsInHand => _hand.Count;
-
     private void OnEnable()
     {
         ActionSystem.AttachPerformer<DrawCardsGA>(DrawCardPerformer);
         ActionSystem.AttachPerformer<DiscardAllCardsGA>(DiscardAllCardsPerformer);
         ActionSystem.AttachPerformer<PlayCardGA>(PlayCardPerformer);
-        ActionSystem.AttachPerformer<StartBattleGA>(StartBattlePerformer);
+        ActionSystem.SubscribeReaction<StartBattleGA>(StartBattlePreReaction, ReactionTiming.PRE);
+        ActionSystem.SubscribeReaction<StartBattleGA>(StartBattlePostReaction, ReactionTiming.POST);
     }
 
     private void OnDisable()
@@ -29,7 +28,8 @@ public class CardSystem : Singleton<CardSystem>
         ActionSystem.DetachPerformer<DrawCardsGA>();
         ActionSystem.DetachPerformer<DiscardAllCardsGA>();
         ActionSystem.DetachPerformer<PlayCardGA>();
-        ActionSystem.DetachPerformer<StartBattleGA>();
+        ActionSystem.UnsubscribeReaction<StartBattleGA>(StartBattlePreReaction, ReactionTiming.PRE);
+        ActionSystem.UnsubscribeReaction<StartBattleGA>(StartBattlePostReaction, ReactionTiming.POST);
     }
 
     //Setup
@@ -101,15 +101,20 @@ public class CardSystem : Singleton<CardSystem>
         }
     }
 
-    private IEnumerator StartBattlePerformer(StartBattleGA startBattleGA)
+    //Reactions
+
+    private void StartBattlePreReaction(StartBattleGA startBattleGA)
     {
         DiscardAllCardsGA discardAllCardsGA = new();
         ActionSystem.Instance.Perform(discardAllCardsGA);
 
+        Debug.Log("Card System: On Start Battle ");
+    }
+
+    private void StartBattlePostReaction(StartBattleGA startBattleGA)
+    {
         DrawCardsGA drawCardsGA = new(5);
         ActionSystem.Instance.Perform(drawCardsGA);
-
-        yield return null;
     }
 
     //Helpers
