@@ -35,6 +35,8 @@ public class DamageSystem : MonoBehaviour
                 else
                 {
                     target.Heal(target.MaxHealth);
+                    KillPlayerGA killPlayerGA = new();
+                    ActionSystem.Instance.Perform(killPlayerGA);
                 }
             }
         }

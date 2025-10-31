@@ -7,12 +7,14 @@ public class HeroSystem : Singleton<HeroSystem>
 
     private void OnEnable()
     {
+        ActionSystem.AttachPerformer<KillPlayerGA>(KillPlayerPerformer);
         ActionSystem.SubscribeReaction<EnemyTurnGA>(EnemyTurnPreReaction, ReactionTiming.PRE);
         ActionSystem.SubscribeReaction<EnemyTurnGA>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
     private void OnDisable()
     {
+        ActionSystem.DetachPerformer<KillPlayerGA>();
         ActionSystem.UnsubscribeReaction<EnemyTurnGA>(EnemyTurnPreReaction, ReactionTiming.PRE);
         ActionSystem.UnsubscribeReaction<EnemyTurnGA>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
@@ -21,6 +23,15 @@ public class HeroSystem : Singleton<HeroSystem>
     {
         HeroView heroView = HeroViewCreator.Instance.CreateHeroView(heroData);
         HeroView = heroView;
+    }
+
+    //Performers
+
+    private IEnumerator KillPlayerPerformer(KillPlayerGA killPlayerGA)
+    {
+        Debug.Log("Player died");
+
+        yield return null;
     }
 
     //Reactions
