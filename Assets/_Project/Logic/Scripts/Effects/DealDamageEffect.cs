@@ -6,9 +6,17 @@ public class DealDamageEffect : Effect
     [SerializeField] private int damageAmount;
     [SerializeField] private bool ignoredArmour;
 
-    public override GameAction GetGameAction(List<CombatantView> targets,CombatantView caster)
+    private CombatantView _currentCaster;
+
+    public override GameAction GetGameAction(List<CombatantView> targets, CombatantView caster)
     {
-        DealDamageGA dealDamageGA = new(damageAmount, targets, caster, ignoredArmour);
+        _currentCaster = caster;
+        int totalDamage = damageAmount;
+
+        totalDamage += caster.DamageModifier;
+        Debug.Log(totalDamage);
+
+        DealDamageGA dealDamageGA = new(totalDamage, targets, caster, ignoredArmour);
         return dealDamageGA;
     }
 

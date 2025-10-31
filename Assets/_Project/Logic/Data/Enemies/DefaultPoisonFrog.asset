@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DefaultPoisonFrog
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 907666870, guid: 882f8359e78524144a5053726d90a8ec, type: 3}
-  <Health>k__BackingField: 25
-  <Armour>k__BackingField: 0
+  <Health>k__BackingField: 15
+  <Armour>k__BackingField: 10
   <Attacks>k__BackingField:
   - AttackDescription: ATK
     <attackEffect>k__BackingField:

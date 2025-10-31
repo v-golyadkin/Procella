@@ -11,6 +11,8 @@ public class EnemySystem : Singleton<EnemySystem>
     
     private List<EnemyView> _enemiesBeforeStatusEffects;
 
+    private int _baseDamageIncrease = 5;
+
     private void OnEnable()
     {
         ActionSystem.AttachPerformer<EnemyTurnGA>(EnemyTurnPerformer);
@@ -19,6 +21,8 @@ public class EnemySystem : Singleton<EnemySystem>
         //ActionSystem.AttachPerformer<PlayerTurnEndGA>(PlayerTurnEndPerformer);
         ActionSystem.SubscribeReaction<PlayerTurnEndGA>(PlayerTurnEndPreReaction, ReactionTiming.PRE);
         ActionSystem.SubscribeReaction<PlayerTurnEndGA>(PlayerTurnEndPostReaction, ReactionTiming.POST);
+        ActionSystem.SubscribeReaction<AttackHeroGA>(AttackHeroPostReaction, ReactionTiming.POST);
+        ActionSystem.SubscribeReaction<EnemyTurnGA>(EnemyTurnPostReactin, ReactionTiming.POST);
     }
 
     private void OnDisable()
@@ -29,6 +33,8 @@ public class EnemySystem : Singleton<EnemySystem>
         //ActionSystem.DetachPerformer<PlayerTurnEndGA>();
         ActionSystem.UnsubscribeReaction<PlayerTurnEndGA>(PlayerTurnEndPreReaction, ReactionTiming.PRE);
         ActionSystem.UnsubscribeReaction<PlayerTurnEndGA>(PlayerTurnEndPostReaction, ReactionTiming.POST);
+        ActionSystem.UnsubscribeReaction<AttackHeroGA>(AttackHeroPostReaction, ReactionTiming.POST);
+        ActionSystem.UnsubscribeReaction<EnemyTurnGA>(EnemyTurnPostReactin, ReactionTiming.POST);
     }
 
     public void Init(List<EnemyData> enemyDatas)
@@ -86,14 +92,12 @@ public class EnemySystem : Singleton<EnemySystem>
         EnemyView attacker = attackHeroGA.Attacker;
         if (attackHeroGA.Attacker != null)
         {
-            //DealDamageGA dealDamageGA = new(attackHeroGA.Damage, new() { HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
-            //ActionSystem.Instance.AddReaction(dealDamageGA);
             if (attackHeroGA.IsBuff)
             {
                 Tween tween = attacker.transform.DOMoveY(attacker.transform.position.y + 0.15f, 0.15f);
                 yield return tween.WaitForCompletion();
                 attacker.transform.DOMoveY(attacker.transform.position.y - 0.15f, 0.15f);
-                PerformEffectGA performEffectGA = new(attackHeroGA.Effect, attackHeroGA.Attacker);
+                PerformEffectGA performEffectGA = new(attackHeroGA.Effect, attackHeroGA.Attacker, attackHeroGA.Attacker);
                 ActionSystem.Instance.AddReaction(performEffectGA);
             }
             else
@@ -101,10 +105,9 @@ public class EnemySystem : Singleton<EnemySystem>
                 Tween tween = attacker.transform.DOMoveX(attacker.transform.position.x - 1f, 0.15f);
                 yield return tween.WaitForCompletion();
                 attacker.transform.DOMoveX(attacker.transform.position.x + 1f, 0.25f);
-                PerformEffectGA performEffectGA = new(attackHeroGA.Effect, HeroSystem.Instance.HeroView);
+                PerformEffectGA performEffectGA = new(attackHeroGA.Effect, HeroSystem.Instance.HeroView, attackHeroGA.Attacker);
                 ActionSystem.Instance.AddReaction(performEffectGA);
             }
-            attacker.UpdateAttackText();
         }
     }
 
@@ -150,5 +153,24 @@ public class EnemySystem : Singleton<EnemySystem>
         }
 
         _enemiesBeforeStatusEffects = null;
+    }
+
+    private void AttackHeroPostReaction(AttackHeroGA attackHeroGA)
+    {
+        if(attackHeroGA != null &&
+            attackHeroGA.IsDamageAttack &&
+            !attackHeroGA.IsBuff)
+        {
+            Debug.Log("Increase damage");
+            attackHeroGA.Attacker.IncreaseDamageModifier(_baseDamageIncrease);
+        }
+    }
+
+    private void EnemyTurnPostReactin(EnemyTurnGA enemyTurnGA)
+    {
+        foreach(var enemy in enemyBoardView.EnemyViews)
+        {
+            enemy.UpdateAttackText();
+        }
     }
 }

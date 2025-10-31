@@ -20,28 +20,28 @@ public class MatchSetupSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            ActionSystem.Instance.ClearAllSubsription();
-            return;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (EnemySystem.Instance.Enemies.Count != 0)
-            {
-                Debug.Log("Have enemy in board");
-                //EnemySystem.Instance.KillAllEnemies();
-                return;
-            }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //    ActionSystem.Instance.ClearAllSubsription();
+        //    return;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    if (EnemySystem.Instance.Enemies.Count != 0)
+        //    {
+        //        Debug.Log("Have enemy in board");
+        //        //EnemySystem.Instance.KillAllEnemies();
+        //        return;
+        //    }
 
-            EnemySystem.Instance.Init(levelData.Enemies);
-        }
+        //    EnemySystem.Instance.Init(levelData.Enemies);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            EnemySystem.Instance.KillAllEnemies();
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    EnemySystem.Instance.KillAllEnemies();
+        //}
     }
 
     public void StartLevel(LevelData levelData)

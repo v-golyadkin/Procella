@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CombatantView : MonoBehaviour
+public class CombatantView : MonoBehaviour, IHaveDamageModifier
 {
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -11,12 +11,16 @@ public class CombatantView : MonoBehaviour
 
     public int MaxHealth {  get; private set; }
     public int CurrentHelth { get; private set; }
+
+    public int DamageModifier { get; protected set; }
+
     private Dictionary<StatusEffectType, int> _statusEffects = new();
 
     protected void SetupBase(int health, int armour, Sprite image)
     {
         MaxHealth = CurrentHelth = health;
         spriteRenderer.sprite = image;
+        DamageModifier = 0;
         AddStatusEffect(StatusEffectType.ARMOR, armour);
         UpdateHealthText();   
     }
@@ -106,5 +110,10 @@ public class CombatantView : MonoBehaviour
             }
         }
         statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
+    }
+
+    public void IncreaseDamageModifier(int amount)
+    {
+        DamageModifier += amount;
     }
 }

@@ -13,7 +13,18 @@ public class EnemyAttackEffect
 
     public void PerformAttack(EnemyView enemy)
     {
-        AttackHeroGA attackHeroGA = new AttackHeroGA(enemy, attackEffect, isBuff);
+        AttackHeroGA attackHeroGA;
+
+        if (attackEffect is DealDamageEffect damageEffect)
+        {
+            int damage = damageEffect.GetValue();
+            attackHeroGA = new AttackHeroGA(enemy, attackEffect, damage);
+        }
+        else
+        {
+            attackHeroGA = new AttackHeroGA(enemy, attackEffect, isBuff);
+        }
+
         ActionSystem.Instance.AddReaction(attackHeroGA);
     }
 }

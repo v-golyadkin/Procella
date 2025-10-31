@@ -10,30 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2597cec15ab66f046bde6a3222cc020c, type: 3}
-  m_Name: DefaultFrog
+  m_Name: HeavyFrog
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: -1912900800, guid: 14d94cc17039a5844b50f0e8e530f22c, type: 3}
-  <Health>k__BackingField: 15
-  <Armour>k__BackingField: 5
+  <Health>k__BackingField: 30
+  <Armour>k__BackingField: 15
   <Attacks>k__BackingField:
   - AttackDescription: ATK
     <attackEffect>k__BackingField:
       rid: 4435883504664051795
     isBuff: 0
-  - AttackDescription: ARM
+  - AttackDescription: ATK
     <attackEffect>k__BackingField:
-      rid: 2270061212992274535
+      rid: 4435883504664051796
+    isBuff: 0
+  - AttackDescription: ARMOUR
+    <attackEffect>k__BackingField:
+      rid: 4435883504664051797
     isBuff: 1
   references:
     version: 2
     RefIds:
-    - rid: 2270061212992274535
-      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
-      data:
-        statusEffectType: 0
-        stackCount: 5
     - rid: 4435883504664051795
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
         damageAmount: 10
         ignoredArmour: 0
+    - rid: 4435883504664051796
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 15
+        ignoredArmour: 0
+    - rid: 4435883504664051797
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 5

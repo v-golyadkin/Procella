@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class AttackHeroGA : GameAction, IHaveCaster
 {
     public EnemyView Attacker {  get; private set; }
@@ -9,6 +11,8 @@ public class AttackHeroGA : GameAction, IHaveCaster
     public Effect Effect { get; private set; }
 
     public bool IsBuff { get; private set; }
+
+    public bool IsDamageAttack => Damage > 0 || IsEffectDealingDamage(Effect);
 
     public AttackHeroGA(EnemyView attacker)
     {
@@ -29,5 +33,20 @@ public class AttackHeroGA : GameAction, IHaveCaster
         Caster = Attacker;
         Effect = attackEffect;
         IsBuff = isBuff;
+    }
+
+    public AttackHeroGA(EnemyView attacker, Effect attackEffect, int damage)
+    {
+        Attacker = attacker;
+        Caster = Attacker;
+        Effect = attackEffect;
+        Damage = damage;
+        IsBuff = false;
+    }
+
+    private bool IsEffectDealingDamage(Effect effect)
+    {
+        if (effect == null) return false;
+        return effect is DealDamageEffect;
     }
 }

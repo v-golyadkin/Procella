@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Level_1 1
   m_EditorClassIdentifier: 
   <Enemies>k__BackingField:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 4692c61be0ac33b49bed1c4af61f2e69, type: 2}
+  - {fileID: 11400000, guid: e8c7ee956b9980d44a2eb2d92a96de59, type: 2}
+  - {fileID: 11400000, guid: e8c7ee956b9980d44a2eb2d92a96de59, type: 2}

@@ -12,7 +12,7 @@ public class EnemyView : CombatantView
     public void Setup(EnemyData enemyData)
     {
         CurrentAttacks = new List<EnemyAttackEffect>(enemyData.Attacks);
-        
+
         ChooseNextAttack();
         UpdateAttackText();
         SetupBase(enemyData.Health, enemyData.Armour, enemyData.Image);
@@ -22,22 +22,15 @@ public class EnemyView : CombatantView
     {
         if (NextAttack != null)
         {
-            attackText.text = $"{NextAttack.AttackDescription}: {NextAttack.attackEffect.GetValue()}";
+            if (NextAttack.attackEffect is DealDamageEffect)
+            {
+                attackText.text = $"{NextAttack.AttackDescription}: {NextAttack.attackEffect.GetValue() + DamageModifier}";
+            }
+            else
+            {
+                attackText.text = $"{NextAttack.AttackDescription}: {NextAttack.attackEffect.GetValue()}";
+            }  
         }
-    }
-
-    public void UpdateAttackText(int damage)
-    {
-        //if (NextAttack != null)
-        //{
-        //    attackText.text = $"{NextAttack.GetAttackName()}: {damage}";
-        //}
-        //else
-        //{
-        //    attackText.text = $"ATK: {AttackPower}";
-        //}
-        attackText.text = $"{NextAttack.AttackDescription}: {damage}";
-        Debug.Log(damage);
     }
 
     public void ChooseNextAttack()
