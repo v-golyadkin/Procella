@@ -20,10 +20,6 @@ MonoBehaviour:
     <attackEffect>k__BackingField:
       rid: 4435883504664051795
     isBuff: 0
-  - AttackDescription: ATK
-    <attackEffect>k__BackingField:
-      rid: 4435883504664051796
-    isBuff: 0
   - AttackDescription: ARMOUR
     <attackEffect>k__BackingField:
       rid: 4435883504664051797
@@ -36,13 +32,8 @@ MonoBehaviour:
       data:
         damageAmount: 10
         ignoredArmour: 0
-    - rid: 4435883504664051796
-      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        damageAmount: 15
-        ignoredArmour: 0
     - rid: 4435883504664051797
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
         statusEffectType: 0
-        stackCount: 5
+        stackCount: 10

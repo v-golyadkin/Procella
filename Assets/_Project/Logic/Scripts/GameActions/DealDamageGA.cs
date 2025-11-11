@@ -13,7 +13,5 @@ public class DealDamageGA : GameAction, IHaveCaster
         Targets = new(targets);
         Caster = caster;
         IgnoredArmour = ignoredArmour;
-
-        Debug.Log($"{caster.gameObject.name} deals {damage} + {caster.DamageModifier} = {Damage} damage");
     }
 }

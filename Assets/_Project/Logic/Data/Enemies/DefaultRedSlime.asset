@@ -18,20 +18,11 @@ MonoBehaviour:
   <Attacks>k__BackingField:
   - AttackDescription: ATK
     <attackEffect>k__BackingField:
-      rid: 4435883433383166075
-    isBuff: 0
-  - AttackDescription: ATK
-    <attackEffect>k__BackingField:
       rid: 4435883433383166076
     isBuff: 0
   references:
     version: 2
     RefIds:
-    - rid: 4435883433383166075
-      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        damageAmount: 5
-        ignoredArmour: 0
     - rid: 4435883433383166076
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:

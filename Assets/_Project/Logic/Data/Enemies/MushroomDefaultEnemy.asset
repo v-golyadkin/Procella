@@ -13,6 +13,36 @@ MonoBehaviour:
   m_Name: MushroomDefaultEnemy
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 924777754, guid: c79d778d42311d547b3fdc5694861767, type: 3}
-  <Health>k__BackingField: 40
-  <AttackPower>k__BackingField: 5
-  <Armour>k__BackingField: 0
+  <Health>k__BackingField: 60
+  <Armour>k__BackingField: 30
+  <Attacks>k__BackingField:
+  - AttackDescription: ATK
+    <attackEffect>k__BackingField:
+      rid: 8356964805665095897
+    isBuff: 0
+  - AttackDescription: ARM
+    <attackEffect>k__BackingField:
+      rid: 8356964805665095898
+    isBuff: 1
+  - AttackDescription: ARM
+    <attackEffect>k__BackingField:
+      rid: 8356964828752642048
+    isBuff: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8356964805665095897
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 15
+        ignoredArmour: 0
+    - rid: 8356964805665095898
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 10
+    - rid: 8356964828752642048
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 2
+        stackCount: 5

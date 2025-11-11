@@ -14,7 +14,6 @@ public class DealDamageEffect : Effect
         int totalDamage = damageAmount;
 
         totalDamage += caster.DamageModifier;
-        Debug.Log(totalDamage);
 
         DealDamageGA dealDamageGA = new(totalDamage, targets, caster, ignoredArmour);
         return dealDamageGA;

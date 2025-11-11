@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultFrog
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: -1912900800, guid: 14d94cc17039a5844b50f0e8e530f22c, type: 3}
-  <Health>k__BackingField: 15
+  <Health>k__BackingField: 20
   <Armour>k__BackingField: 5
   <Attacks>k__BackingField:
   - AttackDescription: ATK
@@ -35,5 +35,5 @@ MonoBehaviour:
     - rid: 4435883504664051795
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 10
+        damageAmount: 5
         ignoredArmour: 0
