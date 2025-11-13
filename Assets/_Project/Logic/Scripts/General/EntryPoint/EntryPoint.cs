@@ -14,6 +14,6 @@ public class EntryPoint : MonoBehaviour
         StartBattleGA startBattleGA = new StartBattleGA();
         ActionSystem.Instance.Perform(startBattleGA);
         
-        //PerkSystem.Instance.AddPerk(new Perk(perkData));
+        PerkSystem.Instance.AddPerk(new Perk(perkData));
     }
 }
