@@ -8,7 +8,8 @@ public class OnHealthThresholdCondition : PerkCondition
     [SerializeField] private bool triggerOnce = false;
     [SerializeField] private bool isHeroThreshold = true; // true - hero, false - enemy
 
-    private bool _alreadyTriggered = false;
+    private bool _alreadyTriggered;
+    private float _lastHealthPercent;
 
     public override bool SubConditionIsMet(GameAction gameAction)
     {
@@ -20,29 +21,42 @@ public class OnHealthThresholdCondition : PerkCondition
         var target = GetTarget(gameAction);
         if(target == null)
         {
+            return false;       
+        }
+
+
+        float currentHealthPercent = (float)target.CurrentHelth / target.MaxHealth * 100f;
+
+        if(_lastHealthPercent < 0)
+        {
+            _lastHealthPercent = currentHealthPercent;
             return false;
         }
 
-        float currentPercent = target.CurrentHelth / target.MaxHealth * 100f;
+        bool crossedThreshold = CheckThresholdCrossing(currentHealthPercent, _lastHealthPercent);
 
-        bool conditionMet = whenBelow ? currentPercent <= healthPercent : currentPercent >= healthPercent;
-
-        if(conditionMet && triggerOnce)
+        if (crossedThreshold && triggerOnce)
         {
             _alreadyTriggered = true;
         }
 
-        return conditionMet;
+        //Debug.Log($"Health: {currentHealthPercent}%, Last: {_lastHealthPercent}%, Crossed: {crossedThreshold}");
+
+        return crossedThreshold;
     }
 
     public override void SubscribeCondition(Action<GameAction> reaction)
     {
+        ResetState();
+
         ActionSystem.SubscribeReaction<DealDamageGA>(reaction, timing);
         ActionSystem.SubscribeReaction<HealGA>(reaction, timing);
     }
 
     public override void UnsubscribeCondition(Action<GameAction> reaction)
     {
+        ResetState();
+
         ActionSystem.UnsubscribeReaction<DealDamageGA>(reaction, timing);
         ActionSystem.UnsubscribeReaction<HealGA>(reaction, timing);
     }
@@ -65,5 +79,23 @@ public class OnHealthThresholdCondition : PerkCondition
             }
         }
         return null;
+    }
+
+    private bool CheckThresholdCrossing(float currentPercent, float lastPercent)
+    {
+        if (whenBelow)
+        {
+            return lastPercent > healthPercent && currentPercent <= healthPercent;
+        }
+        else
+        {
+            return lastPercent < healthPercent && currentPercent >= healthPercent;
+        }
+    }
+
+    private void ResetState()
+    {
+        _alreadyTriggered = false;
+        _lastHealthPercent = -1f;
     }
 }
